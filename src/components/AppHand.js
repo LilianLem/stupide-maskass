@@ -9,7 +9,7 @@ export default class AppHand extends React.Component {
 
 	render(){
 		return (
-	        <div className="AppHand">
+	        <section className="AppHand">
 	            <HandCarte/>
 	            <HandCarte/>
 	            <HandCarte/>
@@ -25,7 +25,7 @@ export default class AppHand extends React.Component {
 	            <HandCarte/>
 	            <HandCarte/>
 	            <HandCarte/>
-	        </div>
+	        </section>
 		)
 	}
 }

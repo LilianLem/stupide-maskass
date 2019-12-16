@@ -9,10 +9,10 @@ export default class AppDeck extends React.Component {
 
 	render(){
 		return (
-	        <div className="AppDeck">
+	        <section className="AppDeck">
 	            <h1>Pioche</h1>
 	            <DeckBox/>
-	        </div>
+	        </section>
 		)
 	}
 }

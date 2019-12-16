@@ -10,10 +10,10 @@ export default class AppRightCol extends React.Component {
 
 	render(){
 		return (
-	        <div className="AppRightCol">
+	        <section className="AppRightCol">
 	            <AppRightColTop/>
 	            <AppRightColBottom/>
-	        </div>
+	        </section>
 		)
 	}
 }

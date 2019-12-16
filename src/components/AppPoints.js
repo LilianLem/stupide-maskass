@@ -9,10 +9,10 @@ export default class AppPoints extends React.Component {
 
 	render(){
 		return (
-	        <div className="AppPoints">
+	        <section className="AppPoints">
 	            <h1>Mes points obtenus</h1>
 	            <PointsBox/>
-	        </div>
+	        </section>
 		)
 	}
 }
