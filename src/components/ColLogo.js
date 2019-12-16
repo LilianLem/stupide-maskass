@@ -8,7 +8,7 @@ export default class ColLogo extends React.Component {
 
 	render(){
 		return (
-            <div className="ColLogo">Aaa</div>
+            <div className="ColLogo"></div>
 		)
 	}
 }
