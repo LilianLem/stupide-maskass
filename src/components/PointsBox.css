@@ -1,0 +1,8 @@
+.PointsBox {
+  display: flex;
+  width: 100%;
+  height: 83%;
+  flex-wrap: wrap;
+  justify-content: space-around; /*Voir si autre solution*/
+  text-align: center;
+}

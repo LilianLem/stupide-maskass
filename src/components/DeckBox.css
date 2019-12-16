@@ -1,0 +1,7 @@
+.DeckBox {
+  width: 100%;
+  height: 73%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}

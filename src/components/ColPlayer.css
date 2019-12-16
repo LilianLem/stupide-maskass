@@ -1,0 +1,9 @@
+.ColPlayer {
+  width: 100%;
+  height: 30%;
+  border: 1px solid black;
+}
+
+.ColPlayer h2 {
+  margin: 0 0 5px;
+}

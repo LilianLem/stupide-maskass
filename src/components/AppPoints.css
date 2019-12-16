@@ -1,0 +1,11 @@
+.AppPoints {
+  grid-area: app-points;
+  background-color: orange;
+  padding-left: 17%;
+  padding-right: 17%;
+}
+
+.AppPoints h1 {
+  text-align: center;
+  margin: 10px 0px 10px;
+}

@@ -1,0 +1,10 @@
+.AppLeftColBottom {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: center;
+}

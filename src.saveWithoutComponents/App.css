@@ -1,0 +1,188 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+
+  grid-template-columns: 0.16fr 0.68fr 0.16fr;
+  grid-template-rows: 0.37fr 0.47fr 0.16fr;
+  grid-template-areas: "app-left-col app-deck app-right-col" "app-left-col app-points app-right-col" "app-hand app-hand app-hand";
+}
+
+.App-col {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+.App-left-col {
+  grid-area: app-left-col;
+  background-color: red;
+}
+
+.App-right-col {
+  grid-area: app-right-col;
+  background-color: green;
+}
+
+.App-points {
+  grid-area: app-points;
+  background-color: orange;
+  padding-left: 17%;
+  padding-right: 17%;
+}
+
+.App-hand {
+  grid-area: app-hand;
+  background-color: cyan;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.App-deck {
+  grid-area: app-deck;
+  background-color: purple;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.Col-top {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 20%;
+}
+
+.Col-bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: center;
+}
+
+.Col-menu {
+  background-color: rgba(0,0,0,0.4);
+  margin: 0 auto;
+  width: 70%;
+  height: 50%;
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Col-menu p {
+  margin: 0;
+  line-height: 100%;
+  text-align: center;
+}
+
+.Col-logo {
+  width: 100%;
+  height: 73%;
+}
+
+.Col-manches {
+  background-color: rgba(0,0,0,0.4);
+  margin: 0 auto;
+  width: 70%;
+  height: 27%;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.App-deck h1 {
+  text-align: center;
+  margin: 10px 0px 10px;
+}
+
+.App-points h1 {
+  text-align: center;
+  margin: 10px 0px 10px;
+}
+
+.Deck-box {
+  width: 100%;
+  height: 73%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.Deck-part {
+  width: 19%;
+  height: 100%;
+  background-color: brown;
+  border-radius: 10px;
+}
+
+.Points-box {
+  display: flex;
+  width: 100%;
+  height: 83%;
+  flex-wrap: wrap;
+  justify-content: space-around; /*Voir si autre solution*/
+  text-align: center;
+}
+
+.Points-carte {
+  width: 13.33%;
+  height: 49%;
+  border: 1px solid black;
+  border-radius: 10px;
+  /*margin: 2px;*/
+}
+
+.Hand-carte {
+  width: 5%;
+  height: 100%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  bottom: -20px;
+  overflow: hidden;
+}
+
+.Col-player {
+  width: 100%;
+  height: 30%;
+  border: 1px solid black;
+}
+
+.Col-player h2 {
+  margin: 0 0 5px;
+}
+
+.Player-box {
+  width: 100%;
+  height: 79%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-right-col .Player-box {
+  flex-direction: row-reverse;
+}
+
+.Player-box * {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.Player-last {
+  width: 38%;
+  height: 79%;
+}
+
+.Player-played {
+  width: 43%;
+  height: 95%;
+}

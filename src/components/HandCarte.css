@@ -1,0 +1,11 @@
+.HandCarte {
+  width: 5%;
+  height: 100%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  bottom: -20px;
+  overflow: hidden;
+}

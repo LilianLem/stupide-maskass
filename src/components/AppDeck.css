@@ -1,0 +1,11 @@
+.AppDeck {
+  grid-area: app-deck;
+  background-color: purple;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.AppDeck h1 {
+  text-align: center;
+  margin: 10px 0px 10px;
+}
