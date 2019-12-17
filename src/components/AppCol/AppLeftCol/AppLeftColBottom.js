@@ -1,5 +1,5 @@
 import React from 'react';
-import ColPlayer from './ColPlayer'
+import ColPlayer from '../ColPlayer/ColPlayer'
 import './AppLeftColBottom.css'
 
 export default class AppLeftColBottom extends React.Component {
