@@ -6,16 +6,26 @@ import AppPoints from './components/AppPoints/AppPoints'
 import AppHand from './components/AppHand/AppHand'
 import './App.css';
 
-function App() {
-    return (
-    <div className="App">
-        <AppLeftCol/>
-        <AppRightCol/>
-        <AppDeck/>
-        <AppPoints/>
-        <AppHand/>
-    </div>
-    );
-}
+export default class App extends React.Component {
+	constructor() {
+		super();
 
-export default App;
+		this.state = {
+			// Mettre les states ici
+		};
+	}
+
+	// Mettre les fonctions ici
+
+	render() {
+	    return (
+		    <div className="App">
+		        <AppLeftCol/>
+		        <AppRightCol/>
+		        <AppDeck/>
+		        <AppPoints/>
+		        <AppHand/>
+		    </div>
+	    );
+	}
+}
