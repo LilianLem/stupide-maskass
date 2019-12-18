@@ -8,7 +8,14 @@ import './App.css';
 
 export default class App extends React.Component {
 	constructor() {
-		super();
+        super();
+        // Tableau de carte ici
+        let cardsArray = [];
+        let maxCardsNumber = 15;
+
+        for (let i = 1; i <= maxCardsNumber; i++) {
+            cardsArray.push(i);
+        }
 
 		this.state = {
 			// Mettre les states ici
