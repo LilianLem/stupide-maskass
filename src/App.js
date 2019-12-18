@@ -21,7 +21,6 @@ export default class App extends React.Component {
         let player = {
         	playerNb: 0,
         	character: '',
-        	points: 0,
         	hand: cardsArray,
         	lastPlayedCard: 0,
         	hasPlayed: false,
