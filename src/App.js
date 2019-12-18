@@ -12,7 +12,7 @@ export default class App extends React.Component {
 
         // Tableau de carte ici
         let cardsArray = [];
-        let maxCardsNumber = 15;
+        const maxCardsNumber = 15;
 
         for (let i = 1; i <= maxCardsNumber; i++) {
             cardsArray.push(i);
