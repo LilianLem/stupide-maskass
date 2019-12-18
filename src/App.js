@@ -28,8 +28,15 @@ export default class App extends React.Component {
         	gainedPoints: []
         }
 
+        // À faire ici : demander le choix du nombre de joueurs avec div au premier plan
+
 		this.state = {
 			// Mettre les states ici
+        	playersNb: 2, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
+        	deck: [], // À définir au lancement de la partie avec un setState
+        	round: 1,
+        	cardsOnBoard: [],
+        	tieOnPreviousRound: false
 		};
 	}
 
