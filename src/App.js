@@ -5,6 +5,7 @@ import AppDeck from './components/AppDeck/AppDeck'
 import AppPoints from './components/AppPoints/AppPoints'
 import AppHand from './components/AppHand/AppHand'
 import './App.css';
+import {checkGame} from './game'
 
 export default class App extends React.Component {
 	constructor() {
