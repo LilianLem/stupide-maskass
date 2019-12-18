@@ -9,12 +9,23 @@ import './App.css';
 export default class App extends React.Component {
 	constructor() {
         super();
+
         // Tableau de carte ici
         let cardsArray = [];
         const maxCardsNumber = 15;
 
         for (let i = 1; i <= maxCardsNumber; i++) {
             cardsArray.push(i);
+        }
+
+        let player = {
+        	playerNb: 0,
+        	character: '',
+        	points: 0,
+        	hand: cardsArray,
+        	lastPlayedCard: 0,
+        	hasPlayed: false,
+        	gainedPoints: []
         }
 
 		this.state = {
