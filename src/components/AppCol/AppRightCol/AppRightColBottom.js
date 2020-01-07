@@ -10,8 +10,8 @@ export default class AppRightColBottom extends React.Component {
 	render(){
 		return (
             <div className="AppRightColBottom">
-                <ColPlayer value={'C'} />
-                <ColPlayer value={'D'} />
+                <ColPlayer player={'C'} />
+                <ColPlayer player={'D'} />
             </div>
 		)
 	}
