@@ -4,3 +4,45 @@
   background-color: brown;
   border-radius: 10px;
 }
+
+@media screen and (min-width: 100px) and (min-height: 100px) {
+  .DeckPart {
+    width: 59px;
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 450px) and (min-height: 500px) {
+  .DeckPart {
+    width: 74px;
+    height: 125px;
+  }
+}
+
+@media screen and (min-width: 560px) and (min-height: 600px) {
+  .DeckPart {
+    width: 94px;
+    height: 160px;
+  }
+}
+
+@media screen and (min-width: 720px) and (min-height: 720px) {
+  .DeckPart {
+    width: 118px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 900px) and (min-height: 860px) {
+  .DeckPart {
+    width: 148px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 1050px) and (min-height: 1000px) {
+  .DeckPart {
+    width: 177px;
+    height: 300px;
+  }
+}

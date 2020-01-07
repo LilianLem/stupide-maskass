@@ -1,8 +1,29 @@
 .AppPoints {
   grid-area: app-points;
   background-color: orange;
-  padding-left: 17%;
-  padding-right: 17%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media screen and (min-width: 600px) and (min-height: 580px) {
+  .AppPoints {
+  	padding-left: 5%;
+  	padding-right: 5%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .AppPoints {
+  	padding-left: 10%;
+  	padding-right: 10%;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .AppPoints {
+  	padding-left: 17%;
+  	padding-right: 17%;
+  }
 }
 
 .AppPoints h1 {

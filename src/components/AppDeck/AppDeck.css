@@ -9,3 +9,9 @@
   text-align: center;
   margin: 10px 0px 10px;
 }
+
+/* Classe à passer en prop et à appliquer en cas d'égalité */
+.tie {
+	padding-left: 10%;
+	padding-right: 10%;
+}
