@@ -1,7 +1,9 @@
 .PointsCarte {
-  border: 1px solid black;
-  border-radius: 10px;
+/*  border: 1px solid black;
+  border-radius: 10px;*/
   margin: 0 auto;
+  background: url('../../resources/points/pos-2.png') no-repeat;
+  background-size: contain;
 }
 
 @media screen and (min-width: 480px) {

@@ -2,7 +2,9 @@
   width: 19%;
   height: 100%;
   background-color: brown;
-  border-radius: 10px;
+/*  border-radius: 10px;*/
+  background: url('../../resources/points/pos-1.png') no-repeat;
+  background-size: contain;
 }
 
 @media screen and (min-width: 100px) and (min-height: 100px) {

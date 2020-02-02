@@ -1,6 +1,8 @@
 .PlayerPlayed {
   width: 33px;
   height: 57px;
+  background: url('../../../resources/players/back/luigi.png') no-repeat;
+  background-size: contain;
 }
 
 @media screen and (min-width: 750px) and (min-height: 500px) {
