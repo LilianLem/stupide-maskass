@@ -11,7 +11,7 @@ setupRound = (setDoubleTie) => {
 
     // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
     
-    // return; On ne retourne aucune valeur
+	// return; On ne retourne aucune valeur
 }
 
 drawCard = (state_currentDraw, state_doubleTie) => {
@@ -31,19 +31,28 @@ toggleHand = () => {
 storePlayedCard = (player,card) => {
 	// On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
 
-    // return; On ne retourne aucune valeur
+	let storePlayedCards = ['Carte jouée'];
+
+	// return; On ne retourne aucune valeur
+	return playedCards;
 }
 
 toggleCurrentPlayerHandDisplay = () => {
 	// On affiche ou on cache la main du joueur courant (on définit le state isHandDisplayed sur l'inverse de l'état actuel du state isHandDisplayed)
 
-    // return; On ne retourne aucune valeur
+	this.state_isHandDisplayed();
+
+	// return; On ne retourne aucune valeur
+	return isHandDisplayed;
 }
 
 toggleCurrentPlayerPointsDisplay = () => {
 	// On affiche ou on cache les cartes obtenues par le joueur courant (on définit le state isPlayerPointsDisplayed sur l'inverse de l'état actuel du state isPlayerPointsDisplayed)
 
-    // return; On ne retourne aucune valeur
+	this.state_isPlayerPointsDisplayed();
+
+	// return; On ne retourne aucune valeur
+	return isPlayerPointsDisplayed;
 }
 
 togglePlayerAreaDisplay = (player) => {
@@ -102,11 +111,17 @@ preparePointsDisplay = () => {
 getMinPlayedCard = (playedCards) => {
 	// On stocke dans la variable minCard la carte avec la valeur la plus faible dans le tableau playedCards
 
+	let minCard = ('1');
+	let PlayedCards = ['1'];
+
 	return minCard;
 }
 
 getMaxPlayedCard = (playedCards) => {
 	// On stocke dans la variable maxCard la carte avec la valeur la plus élevée dans le tableau playedCards
+
+	let maxCard = ('15');
+	let PlayedCards = ['15'];
 
 	return maxCard;
 }
