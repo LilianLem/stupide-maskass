@@ -32,11 +32,24 @@ export default class App extends React.Component {
 
 		this.state = {
 			// Mettre les states ici
+            player1: player,
+            player2: player,
+            player3: player,
+            player4: player,
+            player5: player;
         	playersNb: 2, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
         	deck: [], // À définir au lancement de la partie avec un setState
-        	round: 1,
+        	round: 0,
         	cardsOnBoard: [],
-        	tieOnPreviousRound: false
+        	tieOnPreviousRound: false,
+            currentDraw: [],
+            displayDraw: false,
+            displayDraw2: false,
+            drawValue: 0,
+            drawValue2: 0,
+            isHandLocked: true,
+            isHandDisplayed: false,
+            isPlayerPointsDisplayed: false
 		};
 	}
 
