@@ -49,7 +49,8 @@ export default class App extends React.Component {
             drawValue2: 0,
             isHandLocked: true,
             isHandDisplayed: false,
-            isPlayerPointsDisplayed: false
+            isPlayerPointsDisplayed: false,
+            displayPlayedCards: false
 		};
 	}
 
