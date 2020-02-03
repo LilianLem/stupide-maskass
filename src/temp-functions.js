@@ -3,6 +3,16 @@
 shuffleCards = (availableCards) => {
 	// On mélange les cartes du tableau availableCards
 
+    let j, x;
+
+    for (let i = availableCards.length - 1; i > 0; i--)
+    {
+        j = Math.floor(Math.random() * (i + 1));
+        x = availableCards[i];
+        availableCards[i] = availableCards[j];
+        availableCards[j] = x;
+    }
+
     return availableCards;
 }
 
