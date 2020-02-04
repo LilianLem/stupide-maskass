@@ -62,6 +62,13 @@ export default class App extends React.Component {
                 this.setState({deck: newDeck});
             }
         }
+
+        // On définit les personnages correspondant au joueur dans le rendu actuel (fonctionnalité de choix de joueur indisponible)
+        this.setState({player1.character: 'mario'});
+        this.setState({player2.character: 'dk'});
+        this.setState({player3.character: 'luigi'});
+        this.setState({player4.character: 'peach'});
+        this.setState({player5.character: 'waluigi'});
 	}
 
 	// Mettre les fonctions ici
