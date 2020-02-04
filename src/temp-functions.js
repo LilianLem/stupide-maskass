@@ -19,7 +19,10 @@ shuffleCards = (availableCards) => {
 setupRound = (setDoubleTie) => {
     // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
     this.setState({ round: this.state.round + 1});
-    this.setState({ players.player1: });
+
+	for (let player = 1; player <= this.state.playersNb; player++) {
+		this.setState({['player${player}'].hasPlayed: false});
+	}
 
     // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
     if(setDoubleTie)
@@ -71,8 +74,10 @@ toggleHand = () => {
 
 storePlayedCard = (player,card,playedCards) => {
 	// On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
+	// On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
 
 	playedCards[player] = card;
+	this.setState({['player${player}'].lastPlayedCard: card});
 
 	// return; On ne retourne aucune valeur
 	return playedCards;
