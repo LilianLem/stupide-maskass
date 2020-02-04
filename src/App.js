@@ -54,6 +54,15 @@ export default class App extends React.Component {
             isPlayerPointsDisplayed: false,
             displayPlayedCards: false
 		};
+
+        // On ajoute toutes les cartes points au deck
+        for (let i = -5; i <= 10; i++) {
+            if(i != 0) {
+                let newDeck = this.state.deck;
+                newDeck.push(i);
+                this.setState({deck: newDeck});
+            }
+        }
 	}
 
 	// Mettre les fonctions ici
