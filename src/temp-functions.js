@@ -116,7 +116,7 @@ getPlayerPoints = (player) => {
 
 getPlayerCards = (player) => {
 	// On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
-	playerCards = {this.state."player"+player.gainedPoints};
+	playerCards = {this.state['player${player}'].gainedPoints};
 
 	return playerCards;
 }
@@ -187,32 +187,38 @@ isPlayedCardUnique = (card,playedCards) => {
 // -------- ARRET ICI --------
 
 getRoundWinner = (card,playedCards) => {
-	// On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable index
+	// On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable winner
+	let winner = playedCards.indexOf(card);
 
-	let winner = index++;
 	return winner;
 }
 
 storeGainedPoints = (player,points) => {
 	// On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
+	let newPointsArray = {this.state.["player"+player].gainedPoints};
+	points.forEach(element => newPointsArray.push(element));
 
-	// On profite de la boucle foreach précédente pour stocker dans une variable pointsSum la somme des points gagnée, puis on ajoute cette variable pointsSum à la propriété pointsTotal DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
-
-    // return; On ne retourne aucune valeur
+    return newPointsArray;
 }
 
 setSimpleTie = (card,playedCards) => {
 	// Cette fonction sera utilisée lorsqu'il y a égalité (donc que deux joueurs ont la carte la plus forte ou la plus faible)
 
 	// On définit la variable simpleTie préalablement définie hors de la fonction sur vrai
+	simpleTie = true;
 
 	// On supprime les valeurs correspondant à card du tableau playedCards (avec un foreach comparant les valeurs du tableau playedCards à card)
+	newArray = [];
+	playedCards.forEach(function(element){
+		if(element != card) {newArray.push(element);}
+	})
 
-	return playedCards;
+	return newArray;
 }
 
 toggleEndingScreenDisplay = () => {
 	// On affiche ou on cache l'écran de fin (on définit le state displayEndingScreen sur l'inverse de son état actuel)
+	this.setState({toggleEndingScreenDisplay: !this.state.toggleEndingScreenDisplay});
 
     // return; On ne retourne aucune valeur
 }
