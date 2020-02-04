@@ -19,7 +19,7 @@ shuffleCards = (availableCards) => {
 setupRound = (setDoubleTie) => {
     // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
     this.setState({ round: this.state.round + 1});
-    this.setState({ players.player1: })
+    this.setState({ players.player1: });
 
     // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
     if(setDoubleTie)
