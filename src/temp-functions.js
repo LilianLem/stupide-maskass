@@ -226,8 +226,9 @@ toggleEndingScreenDisplay = () => {
 defineWinners = (players) => {
 	let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
 
+	let score = 0;
 	for (let player = 1; player <= {this.state.playersNb}; player++) {
-		let score = getPlayerPoints(player);
+		score = getPlayerPoints(player);
 		playersScore[player] = score; 
 	}
 
