@@ -226,10 +226,49 @@ toggleEndingScreenDisplay = () => {
 defineWinners = (players) => {
 	let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
 
+	for (let player = 1; player <= {this.state.playersNb}; player++) {
+		let score = getPlayerPoints(player);
+		playersScore[player] = score; 
+	}
+
+	let valueCounter = 0;
+	let maxScore = Math.max(...playersScore);
+
+	playersScore.forEach(function(element){
+		if(element == maxScore)
+		{
+			valueCounter++;
+		}
+	})
+
+	let winners = [];
+	if(valueCounter == 1)
+	{
+		winners.push(playersScore.indexOf(maxScore));
+	}
+	else
+	{
+		let newArray = [];
+		for (let i = 1; i <= playersScore.length; i++) {
+			if(playersScore[i] != maxScore)
+			{
+				newArray[i] = playersScore[i];
+			}
+		}
+
+		let maxScore = Math.max(...newArray);
+
+		for (let i = 1; i <= newArray.length; i++) {
+			if(newArray[i] == maxScore)
+			{
+				winners.push(i);
+			}
+		}
+	}
 	// On compare les scores de chaque joueur avec une boucle for en commençant au 2ème joueur.
 	// Si le score du joueur courant est plus faible que le joueur précédent, on le supprime du tableau.
 
-	return playersScore.keys();
+	return winners;
 }
 
 toggleWinner = (player) => {
