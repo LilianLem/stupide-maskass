@@ -271,12 +271,15 @@ defineWinners = (players) => {
 toggleWinner = (player) => {
 	// On définit la propriété winner DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) sur l'inverse de son état actuel)
 	// Il ne faudra pas oublier de définir le fait que ce state entraîne l'affichage d'une couronne à côté du joueur dans l'écran de fin et met son nom en doré
+	this.setState({winner: !this.state.winner});
 
     // return; On ne retourne aucune valeur
 }
 
 endGame = (players) => {
 	let winners = defineWinners(players);
+
+	winners.forEach(element => toggleWinner(element));
 
 	// Pour chaque élément du tableau winners, on exécute la fonction toggleWinner() avec l'élément du tableau en paramètre.
 
