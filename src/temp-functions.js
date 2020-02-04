@@ -184,8 +184,6 @@ isPlayedCardUnique = (card,playedCards) => {
 	return true;
 }
 
-// -------- ARRET ICI --------
-
 getRoundWinner = (card,playedCards) => {
 	// On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable winner
 	let winner = playedCards.indexOf(card);
