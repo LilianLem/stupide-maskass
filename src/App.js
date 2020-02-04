@@ -44,7 +44,6 @@ export default class App extends React.Component {
             currentPlayer: 0,
         	cardsOnBoard: [],
         	tieOnPreviousRound: false,
-            currentDraw: [],
             displayDraw: false,
             displayDraw2: false,
             drawValue: 0,
