@@ -40,6 +40,7 @@ export default class App extends React.Component {
         	playersNb: 2, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
+            currentPlayer: 0,
         	cardsOnBoard: [],
         	tieOnPreviousRound: false,
             currentDraw: [],
