@@ -266,8 +266,6 @@ defineWinners = (players) => {
 			}
 		}
 	}
-	// On compare les scores de chaque joueur avec une boucle for en commençant au 2ème joueur.
-	// Si le score du joueur courant est plus faible que le joueur précédent, on le supprime du tableau.
 
 	return winners;
 }
