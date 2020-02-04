@@ -25,7 +25,8 @@ export default class App extends React.Component {
         	hand: cardsArray,
         	lastPlayedCard: 0,
         	hasPlayed: false,
-        	gainedPoints: []
+        	gainedPoints: [],
+            winner: false
         }
 
         // À faire ici : demander le choix du nombre de joueurs avec div au premier plan
