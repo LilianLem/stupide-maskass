@@ -99,7 +99,7 @@ togglePlayerAreaDisplay = (player) => {
 	// On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
 	// Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
 
-	this.setState({["player"+player]: !this.state['player${player}']});
+	this.setState({['player${player}']: !this.state['player${player}']});
 
     // return; On ne retourne aucune valeur
 }
