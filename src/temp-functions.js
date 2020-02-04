@@ -37,14 +37,14 @@ setupRound = (setDoubleTie) => {
 drawCard = () => {
 	// On tire une carte au hasard dans le tableau de cartes (variable availableCards) et on l'affiche (si doubleTie est faux, définir le state displayDraw à vrai, sinon définir displayDraw2 à vrai)
 	// On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
-	let newDraw = {this.state.currentDraw};
+	let newDraw = this.state.currentDraw;
 
-	let cards = {this.state.availableCards};
+	let cards = this.state.availableCards;
 	let drawnCard = cards[Math.floor(Math.random() * cards.length)];
 
 	newDraw.push(drawnCard);
 
-	if({this.state.tieOnPreviousRound})
+	if(this.state.tieOnPreviousRound)
 	{
 		this.setState({drawValue2: drawnCard});
 		this.setState({displayDraw2: true});
@@ -116,7 +116,7 @@ getPlayerPoints = (player) => {
 
 getPlayerCards = (player) => {
 	// On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
-	playerCards = {this.state['player${player}'].gainedPoints};
+	playerCards = this.state['player${player}'].gainedPoints;
 
 	return playerCards;
 }
@@ -195,7 +195,7 @@ getRoundWinner = (card,playedCards) => {
 
 storeGainedPoints = (player,points) => {
 	// On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
-	let newPointsArray = {this.state['player${player}'].gainedPoints};
+	let newPointsArray = this.state['player${player}'].gainedPoints;
 	points.forEach(element => newPointsArray.push(element));
 
     return newPointsArray;
@@ -227,7 +227,7 @@ defineWinners = (players) => {
 	let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
 
 	let score = 0;
-	for (let player = 1; player <= {this.state.playersNb}; player++) {
+	for (let player = 1; player <= this.state.playersNb; player++) {
 		score = getPlayerPoints(player);
 		playersScore[player] = score; 
 	}
