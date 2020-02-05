@@ -72,6 +72,7 @@ export default class App extends React.Component {
             isHandLocked: true,
             isHandDisplayed: false,
             isPlayerPointsDisplayed: false,
+            showStartScreen: true,
             displayPlayedCards: false
 		};
 	}
@@ -88,7 +89,8 @@ export default class App extends React.Component {
                 newDeck.push(i);
             }
         }
-        this.setState({deck: newDeck}, () => {console.log(this.state.deck);});
+
+        return newDeck;
     }
 
 	// Mettre les fonctions ici

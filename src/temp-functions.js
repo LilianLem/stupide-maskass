@@ -16,6 +16,20 @@ shuffleCards = (availableCards) => {
     return availableCards;
 }
 
+startGame = () => {
+	let _deck = generateDeck(-5, 10);
+	_deck = shuffleCards(deck);
+    this.setState({deck: _deck}, () => {console.log(this.state.deck);});
+
+    this.setState({currentPlayer: 1}, () => {
+    	toggleCurrentPlayerHandDisplay();
+    	toggleCurrentPlayerPointsDisplay();
+    });
+    
+    this.setState({showStartScreen: false});
+    setupRound();
+}
+
 setupRound = (setDoubleTie) => {
     // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
     this.setState({ round: this.state.round + 1});
@@ -33,6 +47,8 @@ setupRound = (setDoubleTie) => {
     {
     	this.setState({tieOnPreviousRound: false});
     }
+
+    drawCard();
 
 	// return; On ne retourne aucune valeur
 }
@@ -60,10 +76,12 @@ drawCard = () => {
 
 	this.setState({currentDraw: newDraw});
 
+	toggleHandLock();
+
 	// return; On ne retourne aucune valeur
 }
 
-toggleHand = () => {
+toggleHandLock = () => {
 	// On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
 	// Cette fonction fera aussi se retourner les cartes de la main du joueur courant
 
@@ -129,7 +147,7 @@ getPlayerCards = (player) => {
 switchPlayer = (state_currentPlayer) => {
 	let nextPlayer = state_currentPlayer++;
 
-	toggleHand();
+	toggleHandLock();
 	toggleCurrentPlayerPointsDisplay();
 	togglePlayerAreaDisplay(nextPlayer);
 
@@ -155,7 +173,7 @@ togglePlayedCardsDisplay = () => {
 }
 
 preparePointsDisplay = () => {
-	toggleHand();
+	toggleHandLock();
 	toggleCurrentPlayerPointsDisplay();
 
 	showPlayedCards();
