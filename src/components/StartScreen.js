@@ -11,7 +11,7 @@ export default class StartScreen extends React.Component {
 	        <div className="StartScreen">
 	            <img src={require('../resources/logo.png')}/>
 	            <div className="ButtonLayout">
-	            	<button>Commencer la partie</button>
+	            	<button onClick={() => this.props.startGame()}>Commencer la partie</button>
 	            </div>
 	        </div>
 		)

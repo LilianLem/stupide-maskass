@@ -204,7 +204,7 @@ export default class App extends React.Component {
 	render() {
 	    return (
             <div className="App">
-                <StartScreen/>
+                <StartScreen startGame={this.startGame}/>
     		    <Game testMyCode={this.testMyCode}/>
             </div>
 	    );
