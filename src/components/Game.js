@@ -4,6 +4,7 @@ import AppRightCol from './components/AppCol/AppRightCol/AppRightCol'
 import AppDeck from './components/AppDeck/AppDeck'
 import AppPoints from './components/AppPoints/AppPoints'
 import AppHand from './components/AppHand/AppHand'
+import StartScreen from './components/StartScreen'
 import './App.css';
 import {checkGame} from './game'
 
@@ -94,6 +95,7 @@ export default class App extends React.Component {
 
 	render() {
 	    return (
+            <StartScreen/>
 		    <div className="App">
 		        <AppLeftCol/>
 		        <AppRightCol/>
