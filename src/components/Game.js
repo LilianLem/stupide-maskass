@@ -1,9 +1,9 @@
 import React from 'react';
-import AppLeftCol from './components/AppCol/AppLeftCol/AppLeftCol'
-import AppRightCol from './components/AppCol/AppRightCol/AppRightCol'
-import AppDeck from './components/AppDeck/AppDeck'
-import AppPoints from './components/AppPoints/AppPoints'
-import AppHand from './components/AppHand/AppHand'
+import AppLeftCol from './AppCol/AppLeftCol/AppLeftCol'
+import AppRightCol from './AppCol/AppRightCol/AppRightCol'
+import AppDeck from './AppDeck/AppDeck'
+import AppPoints from './AppPoints/AppPoints'
+import AppHand from './AppHand/AppHand'
 import './Game.css';
 
 export default class Game extends React.Component {
