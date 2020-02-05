@@ -9,7 +9,10 @@ export default class StartScreen extends React.Component {
 	render(){
 		return (
 	        <div className="StartScreen">
-	            <img src="../resources/logo.png" width="50%"/>
+	            <img src={require('../resources/logo.png')}/>
+	            <div className="ButtonLayout">
+	            	<button>Commencer la partie</button>
+	            </div>
 	        </div>
 		)
 	}
