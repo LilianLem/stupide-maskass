@@ -93,6 +93,22 @@ export default class App extends React.Component {
         return newDeck;
     }
 
+    shuffleCards = (availableCards) => {
+        // On mélange les cartes du tableau availableCards
+
+        let j, x;
+
+        for (let i = availableCards.length - 1; i > 0; i--)
+        {
+            j = Math.floor(Math.random() * (i + 1));
+            x = availableCards[i];
+            availableCards[i] = availableCards[j];
+            availableCards[j] = x;
+        }
+
+        return availableCards;
+    }
+
     startGame = () => {
         let _deck = this.generateDeck(-5, 10);
         _deck = this.shuffleCards(_deck);
@@ -163,6 +179,22 @@ export default class App extends React.Component {
         // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
 
         this.setState({isHandLocked: !this.state.isHandLocked});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    toggleCurrentPlayerHandDisplay = () => {
+        // On affiche ou on cache la main du joueur courant (on définit le state isHandDisplayed sur l'inverse de l'état actuel du state isHandDisplayed)
+
+        this.setState({isHandDisplayed: !this.state.isHandDisplayed});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    toggleCurrentPlayerPointsDisplay = () => {
+        // On affiche ou on cache les cartes obtenues par le joueur courant (on définit le state isPlayerPointsDisplayed sur l'inverse de l'état actuel du state isPlayerPointsDisplayed)
+
+        this.setState({isPlayerPointsDisplayed: !this.state.isPlayerPointsDisplayed});
 
         // return; On ne retourne aucune valeur
     }
