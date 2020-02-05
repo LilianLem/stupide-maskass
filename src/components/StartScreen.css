@@ -33,4 +33,5 @@
   height: 50px;
   border: 1px solid #000;
   border-radius: 10px;
+  cursor: pointer;
 }
