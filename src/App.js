@@ -1,4 +1,5 @@
 import React from 'react';
+import Game from './components/Game'
 import StartScreen from './components/StartScreen'
 import './App.css';
 
@@ -89,8 +90,10 @@ export default class App extends React.Component {
 
 	render() {
 	    return (
-            <StartScreen/>
-		    <Game testMyCode={this.testMyCode}/>
+            <div className="App">
+                <StartScreen/>
+    		    <Game testMyCode={this.testMyCode}/>
+            </div>
 	    );
 	}
 }
