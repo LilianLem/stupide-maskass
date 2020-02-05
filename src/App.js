@@ -80,9 +80,9 @@ export default class App extends React.Component {
 
     }
 
-    generateDeck = () => {
+    generateDeck = (minCard, maxCard) => {
         let newDeck = this.state.deck;
-        for (let i = -5; i <= 10; i++) {
+        for (let i = minCard; i <= maxCard; i++) {
             if(i != 0) {
                 newDeck.push(i);
             }
