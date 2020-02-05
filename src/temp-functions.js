@@ -1,5 +1,6 @@
 // TRÈS IMPORTANT : Pour tous les endroits où "state" est indiqué, utilise une variable avec "state_"  devant et on remplacera plus tard
 
+/* Importé */
 shuffleCards = (availableCards) => {
 	// On mélange les cartes du tableau availableCards
 
@@ -16,6 +17,7 @@ shuffleCards = (availableCards) => {
     return availableCards;
 }
 
+/* Importé */
 startGame = () => {
 	let _deck = generateDeck(-5, 10);
 	_deck = shuffleCards(deck);
@@ -30,6 +32,7 @@ startGame = () => {
     setupRound();
 }
 
+/* Importé */
 setupRound = (setDoubleTie) => {
     // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
     this.setState({ round: this.state.round + 1});
@@ -53,6 +56,7 @@ setupRound = (setDoubleTie) => {
 	// return; On ne retourne aucune valeur
 }
 
+/* Importé */
 drawCard = () => {
 	// On tire une carte au hasard dans le tableau de cartes (variable availableCards) et on l'affiche (si doubleTie est faux, définir le state displayDraw à vrai, sinon définir displayDraw2 à vrai)
 	// On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
@@ -81,6 +85,7 @@ drawCard = () => {
 	// return; On ne retourne aucune valeur
 }
 
+/* Importé */
 toggleHandLock = () => {
 	// On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
 	// Cette fonction fera aussi se retourner les cartes de la main du joueur courant
@@ -101,6 +106,7 @@ storePlayedCard = (player,card,playedCards) => {
 	return playedCards;
 }
 
+/* Importé */
 toggleCurrentPlayerHandDisplay = () => {
 	// On affiche ou on cache la main du joueur courant (on définit le state isHandDisplayed sur l'inverse de l'état actuel du state isHandDisplayed)
 
@@ -109,6 +115,7 @@ toggleCurrentPlayerHandDisplay = () => {
 	// return; On ne retourne aucune valeur
 }
 
+/* Importé */
 toggleCurrentPlayerPointsDisplay = () => {
 	// On affiche ou on cache les cartes obtenues par le joueur courant (on définit le state isPlayerPointsDisplayed sur l'inverse de l'état actuel du state isPlayerPointsDisplayed)
 
