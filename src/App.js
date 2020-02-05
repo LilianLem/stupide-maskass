@@ -94,17 +94,17 @@ export default class App extends React.Component {
     }
 
     startGame = () => {
-        let _deck = generateDeck(-5, 10);
-        _deck = shuffleCards(deck);
+        let _deck = this.generateDeck(-5, 10);
+        _deck = this.shuffleCards(_deck);
         this.setState({deck: _deck}, () => {console.log(this.state.deck);});
 
         this.setState({currentPlayer: 1}, () => {
-            toggleCurrentPlayerHandDisplay();
-            toggleCurrentPlayerPointsDisplay();
+            this.toggleCurrentPlayerHandDisplay();
+            this.toggleCurrentPlayerPointsDisplay();
         });
         
         this.setState({showStartScreen: false});
-        setupRound();
+        this.setupRound();
     }
 
     setupRound = (setDoubleTie) => {
@@ -125,7 +125,7 @@ export default class App extends React.Component {
             this.setState({tieOnPreviousRound: false});
         }
 
-        drawCard();
+        this.drawCard();
 
         // return; On ne retourne aucune valeur
     }
@@ -153,7 +153,7 @@ export default class App extends React.Component {
 
         this.setState({currentDraw: newDraw});
 
-        toggleHandLock();
+        this.toggleHandLock();
 
         // return; On ne retourne aucune valeur
     }
