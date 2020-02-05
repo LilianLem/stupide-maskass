@@ -93,6 +93,80 @@ export default class App extends React.Component {
         return newDeck;
     }
 
+startGame = () => {
+    let _deck = generateDeck(-5, 10);
+    _deck = shuffleCards(deck);
+    this.setState({deck: _deck}, () => {console.log(this.state.deck);});
+
+    this.setState({currentPlayer: 1}, () => {
+        toggleCurrentPlayerHandDisplay();
+        toggleCurrentPlayerPointsDisplay();
+    });
+    
+    this.setState({showStartScreen: false});
+    setupRound();
+}
+
+setupRound = (setDoubleTie) => {
+    // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
+    this.setState({ round: this.state.round + 1});
+
+    for (let player = 1; player <= this.state.playersNb; player++) {
+        this.setState({['player${player}_hasPlayed']: false});
+    }
+
+    // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
+    if(setDoubleTie)
+    {
+        this.setState({tieOnPreviousRound: true});
+    }
+    else
+    {
+        this.setState({tieOnPreviousRound: false});
+    }
+
+    drawCard();
+
+    // return; On ne retourne aucune valeur
+}
+
+drawCard = () => {
+    // On tire une carte au hasard dans le tableau de cartes (variable availableCards) et on l'affiche (si doubleTie est faux, définir le state displayDraw à vrai, sinon définir displayDraw2 à vrai)
+    // On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
+    let newDraw = this.state.currentDraw;
+
+    let cards = this.state.availableCards;
+    let drawnCard = cards[Math.floor(Math.random() * cards.length)];
+
+    newDraw.push(drawnCard);
+
+    if(this.state.tieOnPreviousRound)
+    {
+        this.setState({drawValue2: drawnCard});
+        this.setState({displayDraw2: true});
+    }
+    else
+    {
+        this.setState({drawValue: drawnCard});
+        this.setState({displayDraw: true});
+    }
+
+    this.setState({currentDraw: newDraw});
+
+    toggleHandLock();
+
+    // return; On ne retourne aucune valeur
+}
+
+toggleHandLock = () => {
+    // On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
+    // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
+
+    this.setState({isHandLocked: !this.state.isHandLocked});
+
+    // return; On ne retourne aucune valeur
+}
+
 	// Mettre les fonctions ici
 
 	render() {
