@@ -73,18 +73,18 @@ export default class App extends React.Component {
             isPlayerPointsDisplayed: false,
             displayPlayedCards: false
 		};
+	}
 
+    testMyCode = () => {
         // On ajoute toutes les cartes points au deck
+        let newDeck = this.state.deck;
         for (let i = -5; i <= 10; i++) {
             if(i != 0) {
-                let newDeck = this.state.deck;
                 newDeck.push(i);
-                this.setState({deck: newDeck});
             }
         }
-
-        // On définit les personnages correspondant au joueur dans le rendu actuel (fonctionnalité de choix de joueur indisponible)
-	}
+        this.setState({deck: newDeck}, () => {console.log(this.state.deck);});
+    }
 
 	// Mettre les fonctions ici
 
@@ -96,6 +96,7 @@ export default class App extends React.Component {
 		        <AppDeck/>
 		        <AppPoints/>
 		        <AppHand/>
+                <button onClick={() => this.testMyCode()} className="TestingButton">TEST</button>
 		    </div>
 	    );
 	}
