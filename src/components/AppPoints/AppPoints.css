@@ -1,6 +1,5 @@
 .AppPoints {
   grid-area: app-points;
-  background-color: orange;
   padding-left: 10%;
   padding-right: 10%;
 }

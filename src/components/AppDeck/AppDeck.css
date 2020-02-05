@@ -1,6 +1,5 @@
 .AppDeck {
   grid-area: app-deck;
-  background-color: purple;
   padding-left: 20%;
   padding-right: 20%;
 }
