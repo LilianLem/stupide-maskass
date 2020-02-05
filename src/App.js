@@ -19,26 +19,46 @@ export default class App extends React.Component {
             cardsArray.push(i);
         }
 
-        let player = {
-        	playerNb: 0, // Non utilisé dans la version rendue
-        	character: '', // A définir manuellement pour la version rendue dans App.js
-        	hand: cardsArray,
-        	lastPlayedCard: 0,
-        	hasPlayed: false,
-        	gainedPoints: [],
-            winner: false
-        }
-
         // À faire ici : demander le choix du nombre de joueurs avec div au premier plan
 
 		this.state = {
 			// Mettre les states ici
-            player1: player,
-            player2: player,
-            player3: player,
-            player4: player,
-            player5: player,
         	playersNb: 2, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
+            player1_character: 'mario',
+            player1_hand: cardsArray,
+            player1_lastPlayedCard: 0,
+            player1_hasPlayed: false,
+            player1_gainedPoints: [],
+            player1_winner: false,
+
+            player2_character: 'dk',
+            player2_hand: cardsArray,
+            player2_lastPlayedCard: 0,
+            player2_hasPlayed: false,
+            player2_gainedPoints: [],
+            player2_winner: false,
+
+            player3_character: 'luigi',
+            player3_hand: cardsArray,
+            player3_lastPlayedCard: 0,
+            player3_hasPlayed: false,
+            player3_gainedPoints: [],
+            player3_winner: false,
+
+            player4_character: 'peach',
+            player4_hand: cardsArray,
+            player4_lastPlayedCard: 0,
+            player4_hasPlayed: false,
+            player4_gainedPoints: [],
+            player4_winner: false,
+
+            player5_character: 'waluigi',
+            player5_hand: cardsArray,
+            player5_lastPlayedCard: 0,
+            player5_hasPlayed: false,
+            player5_gainedPoints: [],
+            player5_winner: false,
+
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
             currentPlayer: 0,
@@ -64,29 +84,6 @@ export default class App extends React.Component {
         }
 
         // On définit les personnages correspondant au joueur dans le rendu actuel (fonctionnalité de choix de joueur indisponible)
-        this.setState(prevState => ({
-            player1: {
-                ...prevState.player1,
-                character: 'mario'
-            }
-        }));
-        // this.setState(prevState => {
-        //  let newState = { ...prevState.player2 };
-        //  newState.character = 'dk';
-        //  return { newState };});
-        // this.setState(prevState => {
-        //  let newState = { ...prevState.player3 };
-        //  newState.character = 'luigi';
-        //  return { newState };});
-        // this.setState(prevState => {
-        //  let newState = { ...prevState.player4 };
-        //  newState.character = 'peach';
-        //  return { newState };});
-        // this.setState(prevState => {
-        //  let newState = { ...prevState.player5 };
-        //  newState.character = 'waluigi';
-        //  return { newState };});
-        console.log(this.state.player1.character);
 	}
 
 	// Mettre les fonctions ici
