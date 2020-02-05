@@ -77,6 +77,10 @@ export default class App extends React.Component {
 
     testMyCode = () => {
         // On ajoute toutes les cartes points au deck
+
+    }
+
+    generateDeck = () => {
         let newDeck = this.state.deck;
         for (let i = -5; i <= 10; i++) {
             if(i != 0) {
