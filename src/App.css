@@ -1,0 +1,20 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+}
+
+@media screen and (max-width: 905px) {
+  h2 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-height: 480px) {
+  h1, h2 {
+  	font-size: 1em;
+  }
+}
