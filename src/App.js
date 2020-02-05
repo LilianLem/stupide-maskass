@@ -85,7 +85,7 @@ export default class App extends React.Component {
     generateDeck = (minCard, maxCard) => {
         let newDeck = this.state.deck;
         for (let i = minCard; i <= maxCard; i++) {
-            if(i != 0) {
+            if(i !== 0) {
                 newDeck.push(i);
             }
         }
@@ -151,12 +151,12 @@ export default class App extends React.Component {
         // On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
         let newDraw = this.state.currentDraw;
 
-        let cards = this.state.availableCards;
+        let cards = this.state.deck;
         let drawnCard = cards[Math.floor(Math.random() * cards.length)];
 
         newDraw.push(drawnCard);
 
-        if(this.state.tieOnPreviousRound)
+        if(this.state.tieOnPreviousRound == true)
         {
             this.setState({drawValue2: drawnCard});
             this.setState({displayDraw2: true});
