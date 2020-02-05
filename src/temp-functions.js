@@ -221,10 +221,17 @@ getRoundWinner = (card,playedCards) => {
 	return winner;
 }
 
-storeGainedPoints = (player,points) => {
+storeGainedPoints = (player) => {
 	// On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
 	let newPointsArray = this.state['player${player}_gainedPoints'];
-	points.forEach(element => newPointsArray.push(element));
+	newPointsArray.push(this.state.drawValue));
+
+	if(this.state.tieOnPreviousRound == false)
+	{
+		newPointsArray.push(this.state.drawValue2);
+	}
+
+	this.setState({['player${player}_gainedPoints']: newPointsArray});
 
     return newPointsArray;
 }
