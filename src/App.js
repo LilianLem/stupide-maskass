@@ -139,6 +139,10 @@ export default class App extends React.Component {
         else
         {
             this.setState({tieOnPreviousRound: false});
+            this.setState({drawValue: 0});
+            this.setState({drawValue2: 0});
+            this.setState({displayDraw: false});
+            this.setState({displayDraw2: false});
         }
 
         this.drawCard();
