@@ -64,11 +64,29 @@ export default class App extends React.Component {
         }
 
         // On définit les personnages correspondant au joueur dans le rendu actuel (fonctionnalité de choix de joueur indisponible)
-        this.setState({player1.character: 'mario'});
-        this.setState({player2.character: 'dk'});
-        this.setState({player3.character: 'luigi'});
-        this.setState({player4.character: 'peach'});
-        this.setState({player5.character: 'waluigi'});
+        this.setState(prevState => ({
+            player1: {
+                ...prevState.player1,
+                character: 'mario'
+            }
+        }));
+        // this.setState(prevState => {
+        //  let newState = { ...prevState.player2 };
+        //  newState.character = 'dk';
+        //  return { newState };});
+        // this.setState(prevState => {
+        //  let newState = { ...prevState.player3 };
+        //  newState.character = 'luigi';
+        //  return { newState };});
+        // this.setState(prevState => {
+        //  let newState = { ...prevState.player4 };
+        //  newState.character = 'peach';
+        //  return { newState };});
+        // this.setState(prevState => {
+        //  let newState = { ...prevState.player5 };
+        //  newState.character = 'waluigi';
+        //  return { newState };});
+        console.log(this.state.player1.character);
 	}
 
 	// Mettre les fonctions ici
