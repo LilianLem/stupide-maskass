@@ -4,7 +4,6 @@ import AppRightCol from './components/AppCol/AppRightCol/AppRightCol'
 import AppDeck from './components/AppDeck/AppDeck'
 import AppPoints from './components/AppPoints/AppPoints'
 import AppHand from './components/AppHand/AppHand'
-import {checkGame} from './game'
 import './Game.css';
 
 export default class Game extends React.Component {
