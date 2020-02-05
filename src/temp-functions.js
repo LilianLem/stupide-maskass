@@ -21,7 +21,7 @@ setupRound = (setDoubleTie) => {
     this.setState({ round: this.state.round + 1});
 
 	for (let player = 1; player <= this.state.playersNb; player++) {
-		this.setState({['player${player}'].hasPlayed: false});
+		this.setState({['player${player}_hasPlayed']: false});
 	}
 
     // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
@@ -77,7 +77,7 @@ storePlayedCard = (player,card,playedCards) => {
 	// On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
 
 	playedCards[player] = card;
-	this.setState({['player${player}'].lastPlayedCard: card});
+	this.setState({['player${player}_lastPlayedCard']: card});
 
 	// return; On ne retourne aucune valeur
 	return playedCards;
@@ -104,7 +104,7 @@ togglePlayerAreaDisplay = (player) => {
 	// On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
 	// Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
 
-	this.setState({['player${player}']: !this.state['player${player}']});
+	this.setState({['player${player}_displayed']: !this.state['player${player}_displayed']});
 
     // return; On ne retourne aucune valeur
 }
@@ -121,7 +121,7 @@ getPlayerPoints = (player) => {
 
 getPlayerCards = (player) => {
 	// On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
-	playerCards = this.state['player${player}'].gainedPoints;
+	playerCards = this.state['player${player}_gainedPoints'];
 
 	return playerCards;
 }
@@ -198,7 +198,7 @@ getRoundWinner = (card,playedCards) => {
 
 storeGainedPoints = (player,points) => {
 	// On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
-	let newPointsArray = this.state['player${player}'].gainedPoints;
+	let newPointsArray = this.state['player${player}_gainedPoints'];
 	points.forEach(element => newPointsArray.push(element));
 
     return newPointsArray;
@@ -276,7 +276,7 @@ defineWinners = (players) => {
 toggleWinner = (player) => {
 	// On définit la propriété winner DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) sur l'inverse de son état actuel)
 	// Il ne faudra pas oublier de définir le fait que ce state entraîne l'affichage d'une couronne à côté du joueur dans l'écran de fin et met son nom en doré
-	this.setState({winner: !this.state.winner});
+	this.setState({['player${player}_winner']: !this.state['player${player}_winner']});
 
     // return; On ne retourne aucune valeur
 }
