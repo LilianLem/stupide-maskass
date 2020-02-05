@@ -32,7 +32,7 @@ export default class App extends React.Component {
             player2_lastPlayedCard: 0,
             player2_hasPlayed: false,
             player2_gainedPoints: [],
-            player1_displayed: true,
+            player2_displayed: true,
             player2_winner: false,
 
             player3_character: 'luigi',
@@ -40,7 +40,7 @@ export default class App extends React.Component {
             player3_lastPlayedCard: 0,
             player3_hasPlayed: false,
             player3_gainedPoints: [],
-            player1_displayed: true,
+            player3_displayed: true,
             player3_winner: false,
 
             player4_character: 'peach',
@@ -48,7 +48,7 @@ export default class App extends React.Component {
             player4_lastPlayedCard: 0,
             player4_hasPlayed: false,
             player4_gainedPoints: [],
-            player1_displayed: true,
+            player4_displayed: true,
             player4_winner: false,
 
             player5_character: 'waluigi',
@@ -56,7 +56,7 @@ export default class App extends React.Component {
             player5_lastPlayedCard: 0,
             player5_hasPlayed: false,
             player5_gainedPoints: [],
-            player1_displayed: true,
+            player5_displayed: true,
             player5_winner: false,
 
         	playersNb: 5, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
