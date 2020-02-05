@@ -23,7 +23,6 @@ export default class App extends React.Component {
 
 		this.state = {
 			// Mettre les states ici
-        	playersNb: 2, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
             player1_character: 'mario',
             player1_hand: cardsArray,
             player1_lastPlayedCard: 0,
@@ -59,6 +58,7 @@ export default class App extends React.Component {
             player5_gainedPoints: [],
             player5_winner: false,
 
+        	playersNb: 5, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
             currentPlayer: 0,
