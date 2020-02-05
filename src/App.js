@@ -63,7 +63,6 @@ export default class App extends React.Component {
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
             currentPlayer: 0,
-        	cardsOnBoard: [],
         	tieOnPreviousRound: false,
             displayDraw: false,
             displayDraw2: false,
