@@ -163,7 +163,7 @@ switchPlayer = (state_currentPlayer) => {
 	togglePlayerAreaDisplay(nextPlayer);
 
 	state_currentPlayerPoints = getPlayerPoints(nextPlayer);
-	state_currentPlayerCards = getPlayerCards(nextPlayer);
+	state_currentPlayerCards = getPlayerPointsCards(nextPlayer);
 
 	setTimeout(function(){
 		togglePlayerAreaDisplay(state_currentPlayer);
