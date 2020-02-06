@@ -155,22 +155,20 @@ getPlayerPointsCards = (player) => {
 	return playerCards;
 }
 
-switchPlayer = (state_currentPlayer) => {
-	let nextPlayer = state_currentPlayer++;
+switchPlayer = () => {
+	let nextPlayer = this.state.currentPlayer + 1;
 
-	toggleHandLock();
 	toggleCurrentPlayerPointsDisplay();
 	togglePlayerAreaDisplay(nextPlayer);
 
-	state_currentPlayerPoints = getPlayerPoints(nextPlayer);
-	state_currentPlayerCards = getPlayerPointsCards(nextPlayer);
-
 	setTimeout(function(){
-		togglePlayerAreaDisplay(state_currentPlayer);
+		togglePlayerAreaDisplay(this.state.currentPlayer);
 
-		state_currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
+		this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
 
 		toggleCurrentPlayerPointsDisplay();
+		toggleCurrentPlayerHandDisplay();
+		toggleHandLock();
 	}, 5000);
 
     // return; On ne retourne aucune valeur
