@@ -110,6 +110,26 @@ storePlayedCard = (player,card) => {
 	// return; On ne retourne aucune valeur
 }
 
+cardIsChosen = (card) => {
+	let player = this.state.currentPlayer;
+
+	toggleHandLock();
+	toggleCurrentPlayerHandDisplay();
+
+	storePlayedCard(player, card);
+
+	if(player == this.state.playersNb)
+	{
+		// toggleCurrentPlayerPointsDisplay();
+		// Suite à faire
+	}
+
+	else
+	{
+		switchPlayer();
+	}
+}
+
 /* Importé */
 toggleCurrentPlayerHandDisplay = () => {
 	// On affiche ou on cache la main du joueur courant (on définit le state isHandDisplayed sur l'inverse de l'état actuel du state isHandDisplayed)
