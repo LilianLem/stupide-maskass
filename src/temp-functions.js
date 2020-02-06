@@ -102,6 +102,12 @@ storePlayedCard = (player,card,playedCards) => {
 	playedCards[player] = card;
 	this.setState({[`player${player}_lastPlayedCard`]: card});
 
+	// On supprime la carte de la main du joueur
+	let playerHand = this.state[`player${player}_hand`];
+	let cardIndex = playerHand.indexOf(card);
+	playerHand.splice(cardIndex, 1);
+	this.setState({[`player${player}_hand`]: playerHand});
+
 	// return; On ne retourne aucune valeur
 	return playedCards;
 }
