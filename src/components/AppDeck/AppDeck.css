@@ -2,6 +2,8 @@
   grid-area: app-deck;
   padding-left: 20%;
   padding-right: 20%;
+  border-left: 1.5px solid black;
+  border-right: 1.5px solid black;
 }
 
 .AppDeck h1 {

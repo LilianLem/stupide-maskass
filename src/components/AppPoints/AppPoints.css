@@ -2,6 +2,9 @@
   grid-area: app-points;
   padding-left: 10%;
   padding-right: 10%;
+  border-top: 1.5px solid black;
+  border-left: 1.5px solid black;
+  border-right: 1.5px solid black;
 }
 
 @media screen and (min-width: 600px) and (min-height: 580px) {
