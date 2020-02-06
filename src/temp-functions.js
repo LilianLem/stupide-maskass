@@ -95,11 +95,10 @@ toggleHandLock = () => {
     // return; On ne retourne aucune valeur
 }
 
-storePlayedCard = (player,card,playedCards) => {
+storePlayedCard = (player,card) => {
 	// On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
 	// On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
 
-	playedCards[player] = card;
 	this.setState({[`player${player}_lastPlayedCard`]: card});
 
 	// On supprime la carte de la main du joueur
