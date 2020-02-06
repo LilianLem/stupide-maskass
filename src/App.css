@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Super Mario 256";
+  src: url("resources/SuperMario256.ttf") format("ttf"),
+}
+
 .App {
   width: 100vw;
   height: 100vh;
   background-color: #556D73;
+  font-family: "Super Mario 256";
 }
 
 h1 {
