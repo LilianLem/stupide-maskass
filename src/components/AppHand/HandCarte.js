@@ -8,7 +8,17 @@ export default class HandCarte extends React.Component {
 
 	render(){
 		return (
-	        <div className={this.props.cardStyleClasses} style={this.props.cardStyleInline} >{this.props.number}</div>
+	        <div className={this.props.cardStyleClasses} style={this.props.cardStyleInline} >
+	        	<div className="HandCarteTopLayout">
+	        		<p>{this.props.number}</p>
+	        		<p>{this.props.number}</p>
+	        		<p>{this.props.number}</p>
+	        		<p>{this.props.number}</p>
+	        	</div>
+	        	<div className="HandCarteBottomLayout">
+	        		<p>{this.props.number}</p>
+	        	</div>
+	        </div>
 		)
 	}
 }
