@@ -14,3 +14,63 @@
   width: 50px;
   height: 30px;
 }
+
+.front.mario {
+  background: url('../resources/players/front/mario.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.front.dk {
+  background: url('../resources/players/front/dk.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.front.peach {
+  background: url('../resources/players/front/peach.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.front.luigi {
+  background: url('../resources/players/front/luigi.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.front.waluigi {
+  background: url('../resources/players/front/waluigi.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back.mario {
+  background: url('../resources/players/back/mario.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back.dk {
+  background: url('../resources/players/back/dk.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back.peach {
+  background: url('../resources/players/back/peach.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back.luigi {
+  background: url('../resources/players/back/luigi.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.back.waluigi {
+  background: url('../resources/players/back/waluigi.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

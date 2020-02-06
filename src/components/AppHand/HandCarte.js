@@ -2,13 +2,13 @@ import React from 'react';
 import './HandCarte.css'
 
 export default class HandCarte extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){
 		return (
-	        <div className="HandCarte">CARD</div>
+	        <div className={this.props.cardStyleClasses} style={this.props.cardStyleInline} >{this.props.number}</div>
 		)
 	}
 }
