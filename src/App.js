@@ -153,7 +153,7 @@ export default class App extends React.Component {
         // On tire une carte au hasard dans le tableau de cartes (variable availableCards) et on l'affiche (si doubleTie est faux, définir le state displayDraw à vrai, sinon définir displayDraw2 à vrai)
         // On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
         let cards = this.state.deck;
-        let drawnCard = cards[Math.floor(Math.random() * cards.length)];
+        let drawnCard = cards[0];
 
         if(this.state.tieOnPreviousRound == true)
         {
@@ -167,6 +167,9 @@ export default class App extends React.Component {
         }
 
         this.toggleHandLock();
+
+        cards.shift();
+        this.setState({deck: cards});
 
         // return; On ne retourne aucune valeur
     }
