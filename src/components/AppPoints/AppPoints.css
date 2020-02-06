@@ -1,5 +1,6 @@
 .AppPoints {
   grid-area: app-points;
+  padding-top: 1%;
   padding-left: 10%;
   padding-right: 10%;
   border-top: 1.5px solid black;
