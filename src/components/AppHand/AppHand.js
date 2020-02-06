@@ -3,8 +3,8 @@ import HandCarte from './HandCarte'
 import './AppHand.css'
 
 export default class AppHand extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){

@@ -12,13 +12,21 @@ export default class Game extends React.Component {
     }
 
     render() {
+        let player = this.props.states.currentPlayer;
+        let handSettings = {
+            character: this.props.states[`player${player}_character`],
+            hand: this.props.states[`player${player}_hand`],
+            locked: this.props.states.isHandLocked,
+            displayed: this.props.states.isHandDisplayed
+        }
+
         return (
             <div className="Game">
                 <AppLeftCol/>
                 <AppRightCol/>
                 <AppDeck/>
                 <AppPoints/>
-                <AppHand/>
+                <AppHand settings={handSettings} />
                 <button onClick={() => this.props.testMyCode()} className="TestingButton">TEST</button>
             </div>
         );
