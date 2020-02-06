@@ -127,7 +127,7 @@ export default class App extends React.Component {
         this.setState({ round: this.state.round + 1});
 
         for (let player = 1; player <= this.state.playersNb; player++) {
-            this.setState({['player${player}_hasPlayed']: false});
+            this.setState({[`player${player}_hasPlayed`]: false});
         }
 
         // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
