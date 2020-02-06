@@ -140,7 +140,7 @@ togglePlayerAreaDisplay = (player) => {
 
 getPlayerPoints = (player) => {
 	// On définit playerPoints comme étant égal à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
-	let gainedPoints = getPlayerCards(player);
+	let gainedPoints = getPlayerPointsCards(player);
 
 	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	playerPoints = gainedPoints.reduce(reducer);
@@ -148,7 +148,7 @@ getPlayerPoints = (player) => {
 	return playerPoints;
 }
 
-getPlayerCards = (player) => {
+getPlayerPointsCards = (player) => {
 	// On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
 	playerCards = this.state[`player${player}_gainedPoints`];
 
