@@ -7,8 +7,8 @@ import AppHand from './AppHand/AppHand'
 import './Game.css';
 
 export default class Game extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     render() {
