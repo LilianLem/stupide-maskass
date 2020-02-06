@@ -108,7 +108,6 @@ storePlayedCard = (player,card) => {
 	this.setState({[`player${player}_hand`]: playerHand});
 
 	// return; On ne retourne aucune valeur
-	return playedCards;
 }
 
 /* Importé */
