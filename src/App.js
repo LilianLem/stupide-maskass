@@ -211,10 +211,17 @@ export default class App extends React.Component {
     }
 
     switchPlayer = () => {
-        let nextPlayer = this.state.currentPlayer + 1;
+        let nextPlayer;
+        if(this.state.currentPlayer == this.state.playersNb)
+        {
+            nextPlayer = 1;
+        }
+        else
+        {
+            nextPlayer = this.state.currentPlayer + 1;
+        }
 
         this.toggleCurrentPlayerPointsDisplay();
-        this.togglePlayerAreaDisplay(nextPlayer);
 
         setTimeout(() => {
             this.switchPlayerAreas(nextPlayer);
