@@ -13,12 +13,13 @@ export default class AppHand extends React.Component {
 		let cardStyleLocked = this.props.settings.locked ? 'none' : 'auto';
 		let cardStyleInline = {pointerEvents: cardStyleLocked}; // Allow click
 		let cardStyleClasses = 'HandCarte' + ' ' + cardSide + ' ' + this.props.settings.character;
+		let showCardValues = this.props.settings.displayed;
 
 		let handCards;
 		if(this.props.settings.hand !== undefined)
 		{
 			handCards = this.props.settings.hand.map((number) => 
-				<HandCarte number={number} cardStyleInline={cardStyleInline} cardStyleClasses={cardStyleClasses} cardIsChosen={this.props.cardIsChosen} />
+				<HandCarte number={number} showCardValues={showCardValues} cardStyleInline={cardStyleInline} cardStyleClasses={cardStyleClasses} cardIsChosen={this.props.cardIsChosen} />
 			);
 		}
 		else { handCards = null; }
