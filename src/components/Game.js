@@ -32,6 +32,18 @@ export default class Game extends React.Component {
             drawValue2: this.props.states.drawValue2
         }
 
+        let colSettings = {
+            round: this.props.states.round,
+            playerAreas: this.props.states.playerAreas,
+        }
+
+        for (let i = 1; i <= this.props.states.playersNb; i++) {
+            colSettings[`player${i}_character`] = this.props.states[`player${i}_character`];
+            colSettings[`player${i}_lastPlayedCard`] = this.props.states[`player${i}_lastPlayedCard`];
+        }
+
+        console.log(colSettings);
+
         return (
             <div className="Game">
                 <AppLeftCol round={this.props.states.round} />
