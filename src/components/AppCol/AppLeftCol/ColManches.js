@@ -8,7 +8,7 @@ export default class ColManches extends React.Component {
 
 	render(){
 		return (
-            <div className="ColManches">Aab</div>
+            <div className="ColManches"><p>Manche {this.props.round} sur 15</p></div>
 		)
 	}
 }

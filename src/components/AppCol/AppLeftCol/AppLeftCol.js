@@ -4,14 +4,14 @@ import AppLeftColBottom from './AppLeftColBottom'
 import './AppLeftCol.css'
 
 export default class AppLeftCol extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){
 		return (
 	        <section className="AppLeftCol">
-	            <AppLeftColTop/>
+	            <AppLeftColTop round={this.props.round} />
 	            <AppLeftColBottom/>
 	        </section>
 		)

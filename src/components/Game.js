@@ -34,7 +34,7 @@ export default class Game extends React.Component {
 
         return (
             <div className="Game">
-                <AppLeftCol/>
+                <AppLeftCol round={this.props.states.round} />
                 <AppRightCol/>
                 <AppDeck settings={deckSettings} />
                 <AppPoints settings={pointsSettings} />
