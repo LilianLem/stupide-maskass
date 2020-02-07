@@ -58,6 +58,7 @@ export default class App extends React.Component {
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
             currentPlayer: 0,
+            colPlayerAreas: [],
         	tieOnPreviousRound: false,
             displayDraw: false,
             displayDraw2: false,
@@ -87,6 +88,14 @@ export default class App extends React.Component {
         return newDeck;
     }
 
+    generatePlayerAreas = () => {
+        let playerAreas = [];
+        for (let i = 2; i <= this.state.playersNb; i++) {
+            playerAreas.push(i);
+        }
+        this.setState({colPlayerAreas: playerAreas});
+    }
+
     shuffleCards = (availableCards) => {
         // On mélange les cartes du tableau availableCards
 
@@ -107,6 +116,7 @@ export default class App extends React.Component {
         let _deck = this.generateDeck(-5, 10);
         _deck = this.shuffleCards(_deck);
         this.setState({deck: _deck}, () => {console.log(this.state.deck);});
+        this.generatePlayerAreas();
 
         this.setState({currentPlayer: 1}, () => {
             this.toggleCurrentPlayerHandDisplay();
