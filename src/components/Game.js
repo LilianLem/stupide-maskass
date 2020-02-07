@@ -22,8 +22,20 @@ export default class Game extends React.Component {
 
         let pointsSettings = {
             cards: this.props.states[`player${player}_gainedPoints`],
-            displayed: this.props.states.isPlayerPointsDisplayed
+            displayed: this.props.states.isPlayerPointsDisplayed,
+            displayPlayedCards: this.props.states.displayPlayedCards,
         }
+
+        let pointsPlayedCardsSettings = {
+            playersNb: this.props.states.playersNb,
+        }
+
+        let playedCards = [];
+        for (let i = 1; i <= this.props.states.playersNb; i++) {
+            pointsPlayedCardsSettings[`player${i}_character`] = this.props.states[`player${i}_character`];
+            playedCards[i] = this.props.states[`player${i}_playedCard`];
+        }
+        pointsPlayedCardsSettings.playedCards = playedCards;
 
         let deckSettings = {
             displayDraw: this.props.states.displayDraw,
@@ -35,6 +47,7 @@ export default class Game extends React.Component {
         let colSettings = {
             playersNb: this.props.states.playersNb,
             round: this.props.states.round,
+            currentPlayer: this.props.states.currentPlayer,
             playerAreas: this.props.states.playerAreas,
         }
 
@@ -50,7 +63,7 @@ export default class Game extends React.Component {
                 <AppLeftCol settings={colSettings} round={this.props.states.round} />
                 <AppRightCol settings={colSettings} />
                 <AppDeck settings={deckSettings} />
-                <AppPoints settings={pointsSettings} />
+                <AppPoints settings={pointsSettings} playedSettings={pointsPlayedCardsSettings} />
                 <AppHand settings={handSettings} cardIsChosen={this.props.cardIsChosen} />
                 <button onClick={() => this.props.testMyCode()} className="TestingButton">TEST</button>
             </div>

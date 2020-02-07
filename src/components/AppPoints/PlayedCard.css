@@ -1,0 +1,91 @@
+.PlayedCard {
+  position: relative;
+  bottom: -40px;
+  overflow: hidden;
+  box-shadow: 7px 5px 5px rgba(0,0,0,0.5);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 680px) {
+  .PlayedCard {
+    width: 38px;
+    height: 65px;
+  }
+}
+
+@media screen and (min-width: 1000px) and (min-height: 580px) {
+  .PlayedCard {
+    width: 59px;
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 1230px) and (min-height: 700px) {
+  .PlayedCard {
+    width: 74px;
+    height: 125px;
+    bottom: -30px;
+  }
+}
+
+@media screen and (min-width: 1530px) and (min-height: 830px) {
+  .PlayedCard {
+    width: 94px;
+    height: 160px;
+  }
+}
+
+@media screen and (min-width: 1750px) and (min-height: 935px) {
+  .PlayedCard {
+    width: 163px;
+    height: 276px;
+/*    width: 109px;
+    height: 185px;*/
+  }
+}
+
+.PlayedCard p {
+  margin: 0;
+  font-size: 4.5em;
+}
+
+.PlayedCard .PlayedCardTopLayout {
+  z-index: 10;
+}
+
+.PlayedCard .PlayedCardTopLayout p {
+  position: absolute;
+  font-size: 1.3em;
+}
+
+.PlayedCard .PlayedCardTopLayout p:nth-child(1) {
+  top: 4.5%;
+  left: 7.5%;
+}
+
+.PlayedCard .PlayedCardTopLayout p:nth-child(2) {
+  top: 4.5%;
+  right: 7.5%;
+}
+
+.PlayedCard .PlayedCardTopLayout p:nth-child(3) {
+  bottom: 4.5%;
+  left: 7.5%;
+}
+
+.PlayedCard .PlayedCardTopLayout p:nth-child(4) {
+  bottom: 4.5%;
+  right: 7.5%;
+}
+
+.PlayedCard .PlayedCardBottomLayout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
