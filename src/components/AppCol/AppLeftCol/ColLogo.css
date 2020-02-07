@@ -3,4 +3,5 @@
   height: 73%;
   background: url('../../../resources/logo.png') no-repeat center;
   background-size: contain;
+  border-bottom: 1.5px solid black;
 }
