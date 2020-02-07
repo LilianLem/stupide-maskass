@@ -10,8 +10,8 @@ export default class AppRightColBottom extends React.Component {
 	render(){
 		return (
             <div className="AppRightColBottom">
-                {(this.props.settings.playersNb > 3) && <ColPlayer player={'C'} />}
-                {(this.props.settings.playersNb > 4) && <ColPlayer player={'D'} />}
+                {(this.props.settings.playersNb > 3) && <ColPlayer player={this.props.settings.playerAreas[2]} />}
+                {(this.props.settings.playersNb > 4) && <ColPlayer player={this.props.settings.playerAreas[3]} />}
             </div>
 		)
 	}

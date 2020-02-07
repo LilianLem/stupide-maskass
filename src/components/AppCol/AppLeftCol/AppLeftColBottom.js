@@ -11,8 +11,8 @@ export default class AppLeftColBottom extends React.Component {
 
 		return (
             <div className="AppLeftColBottom">
-                <ColPlayer player={'A'} />
-                {(this.props.settings.playersNb > 2) && <ColPlayer player={'B'} />}
+                <ColPlayer player={this.props.settings.playerAreas[0]} />
+                {(this.props.settings.playersNb > 2) && <ColPlayer player={this.props.settings.playerAreas[1]} />}
             </div>
 		)
 	}
