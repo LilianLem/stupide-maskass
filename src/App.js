@@ -55,7 +55,7 @@ export default class App extends React.Component {
             player5_winner: false,
 
         	playersNb: 5, // À modifier lorsque le code permettant de choisir le nombre de jours aura été fait
-        	deck: [], // À définir au lancement de la partie avec un setState
+        	deck: [],
         	round: 0,
             currentPlayer: 0,
             playerAreas: [],
@@ -127,15 +127,11 @@ export default class App extends React.Component {
     }
 
     setupRound = (setDoubleTie) => {
-        // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
+        // Initialiser la partie 
         this.setState({ round: this.state.round + 1});
         this.generatePlayerAreas();
         this.moveCardsToLastPlayedCards();
-        // for (let player = 1; player <= this.state.playersNb; player++) {
-        //     this.setState({[`player${player}_hasPlayed`]: false});
-        // }
 
-        // Si setDoubleTie est vrai, on définit le state doubleTie à vrai, sinon on le définit à faux
         if(setDoubleTie)
         {
             this.setState({tieOnPreviousRound: true});
@@ -152,7 +148,6 @@ export default class App extends React.Component {
 
     drawCard = () => {
         // On tire une carte au hasard dans le tableau de cartes (variable availableCards) et on l'affiche (si doubleTie est faux, définir le state displayDraw à vrai, sinon définir displayDraw2 à vrai)
-        // On la retire du tableau de cartes et on l'ajoute (push) au tableau des cartes en train d'être jouées (tableau state_currentDraw)
         let cards = this.state.deck;
         let drawnCard = cards[0];
 
@@ -176,9 +171,6 @@ export default class App extends React.Component {
     }
 
     storePlayedCard = (player,card) => {
-        // On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
-        // On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
-
         this.setState({[`player${player}_playedCard`]: card});
 
         // On supprime la carte de la main du joueur
@@ -266,7 +258,7 @@ export default class App extends React.Component {
         }
         else
         {
-
+            // Les cas d'égalité ne sont pas encore pris en compte, désolé !
         }
     }
 
@@ -286,7 +278,7 @@ export default class App extends React.Component {
         setTimeout(() => {
             this.switchPlayerAreas(nextPlayer);
 
-            this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
+            this.state.currentPlayer = nextPlayer;
 
             this.toggleCurrentPlayerPointsDisplay();
             this.toggleCurrentPlayerHandDisplay();
@@ -351,7 +343,6 @@ export default class App extends React.Component {
     }
 
     storeGainedPoints = (player) => {
-        // On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
         let newPointsArray = this.state[`player${player}_gainedPoints`];
         newPointsArray.push(this.state.drawValue);
 
@@ -367,7 +358,6 @@ export default class App extends React.Component {
 
     toggleHandLock = () => {
         // On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
-        // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
 
         this.setState({isHandLocked: !this.state.isHandLocked});
 
@@ -398,7 +388,7 @@ export default class App extends React.Component {
     }
 
     defineWinners = () => {
-        let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
+        let playersScore = [];
 
         let score = 0;
         for (let player = 1; player <= this.state.playersNb; player++) {
@@ -445,8 +435,6 @@ export default class App extends React.Component {
     }
 
     toggleWinner = (player) => {
-        // On définit la propriété winner DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) sur l'inverse de son état actuel)
-        // Il ne faudra pas oublier de définir le fait que ce state entraîne l'affichage d'une couronne à côté du joueur dans l'écran de fin et met son nom en doré
         this.setState({[`player${player}_winner`]: !this.state['player${player}_winner']});
 
         // return; On ne retourne aucune valeur
@@ -457,16 +445,12 @@ export default class App extends React.Component {
 
         winners.forEach(element => this.toggleWinner(element));
 
-        // Pour chaque élément du tableau winners, on exécute la fonction toggleWinner() avec l'élément du tableau en paramètre.
-
         // toggleEndingScreenDisplay(); --> Ecran non existant
         console.log("GAGNANTS :");
         console.log(winners);
 
         // return; On ne retourne aucune valeur
     }
-
-	// Mettre les fonctions ici
 
 	render() {
 	    return (
