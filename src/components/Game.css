@@ -15,6 +15,10 @@
   height: 30px;
 }
 
+.front {
+  color: white;
+}
+
 .front.mario {
   background: url('../resources/players/front/mario.png') no-repeat;
   background-size: contain;
