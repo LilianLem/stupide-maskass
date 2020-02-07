@@ -172,7 +172,7 @@ export default class App extends React.Component {
         this.setState({[`player${player}_lastPlayedCard`]: card});
 
         // On supprime la carte de la main du joueur
-        let playerHand = this.state[`player${player}_hand`];
+        let playerHand = Array.from(this.state[`player${player}_hand`]);
         let cardIndex = playerHand.indexOf(card);
         playerHand.splice(cardIndex, 1);
         this.setState({[`player${player}_hand`]: playerHand});
