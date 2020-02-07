@@ -183,10 +183,10 @@ export default class App extends React.Component {
     cardIsChosen = (card) => {
         let player = this.state.currentPlayer;
 
-        toggleHandLock();
-        toggleCurrentPlayerHandDisplay();
+        this.toggleHandLock();
+        this.toggleCurrentPlayerHandDisplay();
 
-        storePlayedCard(player, card);
+        this.storePlayedCard(player, card);
 
         if(player == this.state.playersNb)
         {
@@ -196,24 +196,24 @@ export default class App extends React.Component {
 
         else
         {
-            switchPlayer();
+            this.switchPlayer();
         }
     }
 
     switchPlayer = () => {
         let nextPlayer = this.state.currentPlayer + 1;
 
-        toggleCurrentPlayerPointsDisplay();
-        togglePlayerAreaDisplay(nextPlayer);
+        this.toggleCurrentPlayerPointsDisplay();
+        this.togglePlayerAreaDisplay(nextPlayer);
 
         setTimeout(function(){
-            togglePlayerAreaDisplay(this.state.currentPlayer);
+            this.togglePlayerAreaDisplay(this.state.currentPlayer);
 
             this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
 
-            toggleCurrentPlayerPointsDisplay();
-            toggleCurrentPlayerHandDisplay();
-            toggleHandLock();
+            this.toggleCurrentPlayerPointsDisplay();
+            this.toggleCurrentPlayerHandDisplay();
+            this.toggleHandLock();
         }, 5000);
 
         // return; On ne retourne aucune valeur
