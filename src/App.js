@@ -125,6 +125,7 @@ export default class App extends React.Component {
     setupRound = (setDoubleTie) => {
         // Initialiser la partie (ajouter 1 au compteur de manches et réinitialiser les states de chaque joueur indiquant qu'ils ont joué)
         this.setState({ round: this.state.round + 1});
+        this.generatePlayerAreas();
 
         // for (let player = 1; player <= this.state.playersNb; player++) {
         //     this.setState({[`player${player}_hasPlayed`]: false});
