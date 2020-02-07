@@ -206,7 +206,7 @@ export default class App extends React.Component {
         this.toggleCurrentPlayerPointsDisplay();
         this.togglePlayerAreaDisplay(nextPlayer);
 
-        setTimeout(function(){
+        setTimeout(() => {
             this.togglePlayerAreaDisplay(this.state.currentPlayer);
 
             this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
