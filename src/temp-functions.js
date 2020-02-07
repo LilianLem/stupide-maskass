@@ -95,6 +95,7 @@ toggleHandLock = () => {
     // return; On ne retourne aucune valeur
 }
 
+/* Importé */
 storePlayedCard = (player,card) => {
 	// On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
 	// On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
@@ -110,6 +111,7 @@ storePlayedCard = (player,card) => {
 	// return; On ne retourne aucune valeur
 }
 
+/* Importé */
 cardIsChosen = (card) => {
 	let player = this.state.currentPlayer;
 
@@ -148,6 +150,7 @@ toggleCurrentPlayerPointsDisplay = () => {
 	// return; On ne retourne aucune valeur
 }
 
+/* Importé */
 // Attention : revoir plus en détails pour la sélection de la zone
 togglePlayerAreaDisplay = (player) => {
 	// On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
@@ -175,6 +178,7 @@ getPlayerPointsCards = (player) => {
 	return playerCards;
 }
 
+/* Importé */
 switchPlayer = () => {
 	let nextPlayer = this.state.currentPlayer + 1;
 

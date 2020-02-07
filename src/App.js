@@ -165,6 +165,60 @@ export default class App extends React.Component {
         // return; On ne retourne aucune valeur
     }
 
+    storePlayedCard = (player,card) => {
+        // On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
+        // On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
+
+        this.setState({[`player${player}_lastPlayedCard`]: card});
+
+        // On supprime la carte de la main du joueur
+        let playerHand = this.state[`player${player}_hand`];
+        let cardIndex = playerHand.indexOf(card);
+        playerHand.splice(cardIndex, 1);
+        this.setState({[`player${player}_hand`]: playerHand});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    cardIsChosen = (card) => {
+        let player = this.state.currentPlayer;
+
+        toggleHandLock();
+        toggleCurrentPlayerHandDisplay();
+
+        storePlayedCard(player, card);
+
+        if(player == this.state.playersNb)
+        {
+            // toggleCurrentPlayerPointsDisplay();
+            // Suite à faire
+        }
+
+        else
+        {
+            switchPlayer();
+        }
+    }
+
+    switchPlayer = () => {
+        let nextPlayer = this.state.currentPlayer + 1;
+
+        toggleCurrentPlayerPointsDisplay();
+        togglePlayerAreaDisplay(nextPlayer);
+
+        setTimeout(function(){
+            togglePlayerAreaDisplay(this.state.currentPlayer);
+
+            this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
+
+            toggleCurrentPlayerPointsDisplay();
+            toggleCurrentPlayerHandDisplay();
+            toggleHandLock();
+        }, 5000);
+
+        // return; On ne retourne aucune valeur
+    }
+
     toggleHandLock = () => {
         // On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
         // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
@@ -186,6 +240,16 @@ export default class App extends React.Component {
         // On affiche ou on cache les cartes obtenues par le joueur courant (on définit le state isPlayerPointsDisplayed sur l'inverse de l'état actuel du state isPlayerPointsDisplayed)
 
         this.setState({isPlayerPointsDisplayed: !this.state.isPlayerPointsDisplayed});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    // Attention : revoir plus en détails pour la sélection de la zone
+    togglePlayerAreaDisplay = (player) => {
+        // On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
+        // Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
+
+        this.setState({[`player${player}_displayed`]: !this.state['player${player}_displayed']});
 
         // return; On ne retourne aucune valeur
     }
