@@ -58,7 +58,7 @@ export default class App extends React.Component {
         	deck: [], // À définir au lancement de la partie avec un setState
         	round: 0,
             currentPlayer: 0,
-            colPlayerAreas: [],
+            playerAreas: [],
         	tieOnPreviousRound: false,
             displayDraw: false,
             displayDraw2: false,
@@ -93,7 +93,7 @@ export default class App extends React.Component {
         for (let i = 2; i <= this.state.playersNb; i++) {
             playerAreas.push(i);
         }
-        this.setState({colPlayerAreas: playerAreas});
+        this.setState({playerAreas: playerAreas});
     }
 
     shuffleCards = (availableCards) => {
@@ -217,7 +217,7 @@ export default class App extends React.Component {
         this.togglePlayerAreaDisplay(nextPlayer);
 
         setTimeout(() => {
-            this.togglePlayerAreaDisplay(this.state.currentPlayer);
+            this.switchPlayerAreas(nextPlayer);
 
             this.state.currentPlayer = nextPlayer; // Ne pas oublier plus tard de définir les dos et devants de carte de la main en fonction du joueur courant
 
@@ -255,7 +255,7 @@ export default class App extends React.Component {
     }
 
     // Attention : revoir plus en détails pour la sélection de la zone
-    togglePlayerAreaDisplay = (player) => {
+    switchPlayerAreas = (nextPlayer) => {
         // On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
         // Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
 
