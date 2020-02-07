@@ -18,7 +18,7 @@ export default class AppHand extends React.Component {
 		if(this.props.settings.hand !== undefined)
 		{
 			handCards = this.props.settings.hand.map((number) => 
-				<HandCarte number={number} cardStyleInline={cardStyleInline} cardStyleClasses={cardStyleClasses} />
+				<HandCarte number={number} cardStyleInline={cardStyleInline} cardStyleClasses={cardStyleClasses} cardIsChosen={this.props.cardIsChosen} />
 			);
 		}
 		else { handCards = null; }

@@ -8,7 +8,7 @@ export default class HandCarte extends React.Component {
 
 	render(){
 		return (
-	        <div className={this.props.cardStyleClasses} style={this.props.cardStyleInline} >
+	        <div onClick={() => this.props.cardIsChosen(this.props.number)} className={this.props.cardStyleClasses} style={this.props.cardStyleInline} >
 	        	<div className="HandCarteTopLayout">
 	        		<p>{this.props.number}</p>
 	        		<p>{this.props.number}</p>

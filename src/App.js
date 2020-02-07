@@ -260,7 +260,7 @@ export default class App extends React.Component {
 	    return (
             <div className="App">
                 <StartScreen showStartScreen={this.state.showStartScreen} startGame={this.startGame}/>
-    		    <Game states={this.state} testMyCode={this.testMyCode}/>
+    		    <Game states={this.state} testMyCode={this.testMyCode} cardIsChosen={this.cardIsChosen} />
             </div>
 	    );
 	}

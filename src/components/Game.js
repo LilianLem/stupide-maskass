@@ -26,7 +26,7 @@ export default class Game extends React.Component {
                 <AppRightCol/>
                 <AppDeck/>
                 <AppPoints/>
-                <AppHand settings={handSettings} />
+                <AppHand settings={handSettings} cardIsChosen={this.props.cardIsChosen} />
                 <button onClick={() => this.props.testMyCode()} className="TestingButton">TEST</button>
             </div>
         );
