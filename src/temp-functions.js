@@ -198,6 +198,7 @@ switchPlayer = () => {
     // return; On ne retourne aucune valeur
 }
 
+/* Importé */
 togglePlayedCardsDisplay = () => {
 	// On affiche ou on cache les cartes jouées pendant la manche à la place de la zone des points (on définit le state displayPlayedCards sur l'inverse de son état actuel)
 	this.setState({displayPlayedCards: !this.state.displayPlayedCards});
