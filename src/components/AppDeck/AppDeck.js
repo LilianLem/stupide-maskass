@@ -8,6 +8,9 @@ export default class AppDeck extends React.Component {
 	}
 
 	render(){
+		let deckClasses = 'AppDeck';
+		this.props.settings.displayDraw2 && (deckClasses += ' tie');
+
 		return (
 	        <section className={deckClasses}>
 	            <h1>Pioche</h1>
