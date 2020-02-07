@@ -266,7 +266,16 @@ export default class App extends React.Component {
         // On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
         // Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
 
-        this.setState({[`player${player}_displayed`]: !this.state['player${player}_displayed']});
+        let playerAreas = this.state.playerAreas;
+        if(nextPlayer == 1)
+        {
+            this.generatePlayerAreas();
+        }
+        else
+        {
+            let nextPlayerIndex = playerAreas.indexOf(nextPlayer);
+            playerAreas[nextPlayerIndex] = this.state.currentPlayer;
+        }
 
         // return; On ne retourne aucune valeur
     }
