@@ -214,7 +214,7 @@ export default class App extends React.Component {
             this.toggleCurrentPlayerPointsDisplay();
             this.toggleCurrentPlayerHandDisplay();
             this.toggleHandLock();
-        }, 5000);
+        }, 500); // Temps d'attente réduit pour la présentation du projet
 
         // return; On ne retourne aucune valeur
     }
