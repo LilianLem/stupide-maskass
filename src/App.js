@@ -23,29 +23,34 @@ export default class App extends React.Component {
             player1_hand: cardsArray,
             player1_lastPlayedCard: 0,
             player1_gainedPoints: [],
+            player1_playedCard: 0,
             player1_winner: false,
 
             player2_character: 'dk',
             player2_hand: cardsArray,
             player2_lastPlayedCard: 0,
+            player2_playedCard: 0,
             player2_gainedPoints: [],
             player2_winner: false,
 
             player3_character: 'luigi',
             player3_hand: cardsArray,
             player3_lastPlayedCard: 0,
+            player3_playedCard: 0,
             player3_gainedPoints: [],
             player3_winner: false,
 
             player4_character: 'peach',
             player4_hand: cardsArray,
             player4_lastPlayedCard: 0,
+            player4_playedCard: 0,
             player4_gainedPoints: [],
             player4_winner: false,
 
             player5_character: 'waluigi',
             player5_hand: cardsArray,
             player5_lastPlayedCard: 0,
+            player5_playedCard: 0,
             player5_gainedPoints: [],
             player5_winner: false,
 
@@ -175,7 +180,7 @@ export default class App extends React.Component {
         // On stocke la carte jouée dans le tableau des cartes jouées (variable playedCards qu'on définira au préalable hors de la fonction) à l'index du joueur courant (player)
         // On stocke également cette carte dans le state du joueur (player), dans le paramètre lastPlayedCard
 
-        this.setState({[`player${player}_lastPlayedCard`]: card});
+        this.setState({[`player${player}_playedCard`]: card});
 
         // On supprime la carte de la main du joueur
         let playerHand = Array.from(this.state[`player${player}_hand`]);
