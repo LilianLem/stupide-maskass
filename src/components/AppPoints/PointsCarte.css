@@ -49,3 +49,10 @@
     height: 185px;
   }
 }
+
+.PointsCarte p {
+  margin: 0;
+  font-size: 3em;
+  position: relative;
+  top: 10%;
+}

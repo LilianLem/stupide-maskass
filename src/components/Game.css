@@ -68,3 +68,26 @@
   background: url('../resources/players/back/waluigi.png') no-repeat;
   background-size: contain;
 }
+
+.neg {
+  background: url('../resources/points/neg.png') no-repeat;
+  background-size: contain;
+}
+
+.pos1 {
+  background: url('../resources/points/pos-1.png') no-repeat;
+  background-size: contain;
+  color: white;
+}
+
+.pos2 {
+  background: url('../resources/points/pos-2.png') no-repeat;
+  background-size: contain;
+  color: white;
+}
+
+.pos3 {
+  background: url('../resources/points/pos-3.png') no-repeat;
+  background-size: contain;
+  color: white;
+}

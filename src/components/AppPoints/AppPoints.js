@@ -11,7 +11,7 @@ export default class AppPoints extends React.Component {
 		return (
 	        <section className="AppPoints">
 	            <h1>Mes points obtenus</h1>
-	            <PointsBox cards={this.props.settings.cards} />
+	            <PointsBox settings={this.props.settings} />
 	        </section>
 		)
 	}

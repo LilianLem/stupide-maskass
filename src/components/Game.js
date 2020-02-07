@@ -21,7 +21,8 @@ export default class Game extends React.Component {
         }
 
         let pointsSettings = {
-            cards: this.props.states[`player${player}_gainedPoints`]
+            cards: this.props.states[`player${player}_gainedPoints`],
+            displayed: this.props.states.isPlayerPointsDisplayed
         }
 
         return (
