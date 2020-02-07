@@ -31,9 +31,9 @@ export default class Game extends React.Component {
         }
 
         let playedCards = [];
-        for (let i = 1; i <= this.props.states.playersNb; i++) {
-            pointsPlayedCardsSettings[`player${i}_character`] = this.props.states[`player${i}_character`];
-            playedCards[i] = this.props.states[`player${i}_playedCard`];
+        for (let i = 0; i < this.props.states.playersNb; i++) {
+            pointsPlayedCardsSettings[`player${i+1}_character`] = this.props.states[`player${i+1}_character`];
+            playedCards[i] = this.props.states[`player${i+1}_playedCard`];
         }
         pointsPlayedCardsSettings.playedCards = playedCards;
 

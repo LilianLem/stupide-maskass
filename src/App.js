@@ -211,8 +211,7 @@ export default class App extends React.Component {
 
         if(player == this.state.playersNb)
         {
-            // toggleCurrentPlayerPointsDisplay();
-            // Suite à faire
+            this.togglePlayedCardsDisplay();
         }
 
         else

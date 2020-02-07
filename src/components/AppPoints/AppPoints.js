@@ -16,7 +16,7 @@ export default class AppPoints extends React.Component {
 
 		let playedCardsClasses = [];
 		this.props.playedSettings.playedCards.forEach((value, cardIndex) => {
-			playedCardsClasses[cardIndex] = 'PlayedCard front ' + this.props.playedSettings[`player${cardIndex}_character`];
+			playedCardsClasses[cardIndex] = 'PlayedCard front ' + this.props.playedSettings[`player${cardIndex+1}_character`];
 		});
 
 		let playedCards = this.props.playedSettings.playedCards.map((value, cardIndex) => 
