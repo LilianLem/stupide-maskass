@@ -22,8 +22,8 @@ export default class App extends React.Component {
             player1_character: 'mario',
             player1_hand: cardsArray,
             player1_lastPlayedCard: 0,
-            player1_gainedPoints: [],
             player1_playedCard: 0,
+            player1_gainedPoints: [],
             player1_winner: false,
 
             player2_character: 'dk',
@@ -116,7 +116,6 @@ export default class App extends React.Component {
         let _deck = this.generateDeck(-5, 10);
         _deck = this.shuffleCards(_deck);
         this.setState({deck: _deck}, () => {console.log(this.state.deck);});
-        this.generatePlayerAreas();
 
         this.setState({currentPlayer: 1}, () => {
             this.toggleCurrentPlayerHandDisplay();
@@ -212,11 +211,62 @@ export default class App extends React.Component {
         if(player == this.state.playersNb)
         {
             this.togglePlayedCardsDisplay();
+
+            setTimeout(() => {
+                this.checkPlayedCards();
+
+            }, 2000);
         }
 
         else
         {
             this.switchPlayer();
+        }
+    }
+
+    checkPlayedCards = () => {
+        let pointsToWin = this.state.drawValue + this.state.drawValue2;
+
+        let playedCards = [];
+        for (let i = 1; i <= this.state.playersNb; i++)
+        {
+            playedCards.push(this.state[`player${i}_playedCard`]);
+        }
+
+        let winningValue;
+        if(pointsToWin >= 0)
+        {
+            winningValue = this.getMaxPlayedCard(playedCards);
+        }
+        else
+        {
+            winningValue = this.getMinPlayedCard(playedCards);
+        }
+
+        let isCardUnique = this.isPlayedCardUnique(winningValue,playedCards);
+
+        if(isCardUnique)
+        {
+            console.log('winningValue : '+winningValue+' playedCards : '+playedCards);
+            let winner = this.getRoundWinner(winningValue,playedCards);
+            this.storeGainedPoints(winner);
+
+            if(this.state.round == 15)
+            {
+                this.endGame();
+            }
+
+            else
+            {
+                this.setupRound();
+                this.switchPlayer();
+                this.togglePlayedCardsDisplay();
+                this.toggleHandLock();
+            }
+        }
+        else
+        {
+
         }
     }
 
@@ -264,6 +314,57 @@ export default class App extends React.Component {
         // return; On ne retourne aucune valeur
     }
 
+    getMinPlayedCard = (playedCards) => {
+        // On stocke dans la variable minCard la carte avec la valeur la plus faible dans le tableau playedCards
+
+        let minCard = Math.min(...playedCards);
+
+        return minCard;
+    }
+
+    getMaxPlayedCard = (playedCards) => {
+        // On stocke dans la variable maxCard la carte avec la valeur la plus élevée dans le tableau playedCards
+        console.log('jdsgjidfgjifdjgdfjg');
+        console.log(playedCards);
+        let maxCard = Math.max(...playedCards);
+
+        return maxCard;
+    }
+
+    isPlayedCardUnique = (card,playedCards) => {
+        // On compte le nombre de fois où card est présent dans le tableau playedCards
+
+        let playedCount = 0;
+        playedCards.forEach(function(element){
+            if(element == card) { playedCount++; }
+            if(playedCount == 2){ return false; }
+        })
+
+        return true;
+    }
+
+    getRoundWinner = (card,playedCards) => {
+        // On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable winner
+        let winner = playedCards.indexOf(card) + 1;
+
+        return winner;
+    }
+
+    storeGainedPoints = (player) => {
+        // On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
+        let newPointsArray = this.state[`player${player}_gainedPoints`];
+        newPointsArray.push(this.state.drawValue);
+
+        if(this.state.tieOnPreviousRound == true)
+        {
+            newPointsArray.push(this.state.drawValue2);
+        }
+
+        this.setState({[`player${player}_gainedPoints`]: newPointsArray});
+
+        return newPointsArray;
+    }
+
     toggleHandLock = () => {
         // On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
         // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
@@ -292,6 +393,75 @@ export default class App extends React.Component {
     togglePlayedCardsDisplay = () => {
         // On affiche ou on cache les cartes jouées pendant la manche à la place de la zone des points (on définit le state displayPlayedCards sur l'inverse de son état actuel)
         this.setState({displayPlayedCards: !this.state.displayPlayedCards});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    defineWinners = () => {
+        let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
+
+        let score = 0;
+        for (let player = 1; player <= this.state.playersNb; player++) {
+            score = this.getPlayerPoints(player);
+            playersScore[player] = score; 
+        }
+
+        let valueCounter = 0;
+        let maxScore = Math.max(...playersScore);
+
+        playersScore.forEach(function(element){
+            if(element == maxScore)
+            {
+                valueCounter++;
+            }
+        })
+
+        let winners = [];
+        if(valueCounter == 1)
+        {
+            winners.push(playersScore.indexOf(maxScore));
+        }
+        else
+        {
+            let newArray = [];
+            for (let i = 1; i <= playersScore.length; i++) {
+                if(playersScore[i] != maxScore)
+                {
+                    newArray[i] = playersScore[i];
+                }
+            }
+
+            let maxScore = Math.max(...newArray);
+
+            for (let i = 1; i <= newArray.length; i++) {
+                if(newArray[i] == maxScore)
+                {
+                    winners.push(i);
+                }
+            }
+        }
+
+        return winners;
+    }
+
+    toggleWinner = (player) => {
+        // On définit la propriété winner DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) sur l'inverse de son état actuel)
+        // Il ne faudra pas oublier de définir le fait que ce state entraîne l'affichage d'une couronne à côté du joueur dans l'écran de fin et met son nom en doré
+        this.setState({[`player${player}_winner`]: !this.state['player${player}_winner']});
+
+        // return; On ne retourne aucune valeur
+    }
+
+    endGame = () => {
+        let winners = this.defineWinners();
+
+        winners.forEach(element => this.toggleWinner(element));
+
+        // Pour chaque élément du tableau winners, on exécute la fonction toggleWinner() avec l'élément du tableau en paramètre.
+
+        // toggleEndingScreenDisplay(); --> Ecran non existant
+        console.log("GAGNANTS :");
+        console.log(winners);
 
         // return; On ne retourne aucune valeur
     }

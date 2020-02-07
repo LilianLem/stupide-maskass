@@ -213,6 +213,7 @@ preparePointsDisplay = () => {
 	showPlayedCards();
 }
 
+/* Importé */
 getMinPlayedCard = (playedCards) => {
 	// On stocke dans la variable minCard la carte avec la valeur la plus faible dans le tableau playedCards
 
@@ -221,6 +222,7 @@ getMinPlayedCard = (playedCards) => {
 	return minCard;
 }
 
+/* Importé */
 getMaxPlayedCard = (playedCards) => {
 	// On stocke dans la variable maxCard la carte avec la valeur la plus élevée dans le tableau playedCards
 
@@ -229,6 +231,7 @@ getMaxPlayedCard = (playedCards) => {
 	return maxCard;
 }
 
+/* Importé */
 isPlayedCardUnique = (card,playedCards) => {
 	// On compte le nombre de fois où card est présent dans le tableau playedCards
 
@@ -241,6 +244,7 @@ isPlayedCardUnique = (card,playedCards) => {
 	return true;
 }
 
+/* Importé */
 getRoundWinner = (card,playedCards) => {
 	// On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable winner
 	let winner = playedCards.indexOf(card);
@@ -248,6 +252,7 @@ getRoundWinner = (card,playedCards) => {
 	return winner;
 }
 
+/* Importé */
 storeGainedPoints = (player) => {
 	// On ajoute (push) à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) chaque élément du tableau points (boucle foreach)
 	let newPointsArray = this.state[`player${player}_gainedPoints`];
@@ -285,7 +290,8 @@ toggleEndingScreenDisplay = () => {
     // return; On ne retourne aucune valeur
 }
 
-defineWinners = (players) => {
+/* Importé */
+defineWinners = () => {
 	let playersScore = []; // On ajoute le score de chaque joueur (situé dans players -> player1/2/3/4 -> pointsTotal) avec une boucle foreach dans ce tableau au format clé => valeur, avec la clé correspondant au n° du joueur, et la valeur correspondant à ses points
 
 	let score = 0;
@@ -332,6 +338,7 @@ defineWinners = (players) => {
 	return winners;
 }
 
+/* Importé */
 toggleWinner = (player) => {
 	// On définit la propriété winner DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT) sur l'inverse de son état actuel)
 	// Il ne faudra pas oublier de définir le fait que ce state entraîne l'affichage d'une couronne à côté du joueur dans l'écran de fin et met son nom en doré
@@ -340,14 +347,17 @@ toggleWinner = (player) => {
     // return; On ne retourne aucune valeur
 }
 
-endGame = (players) => {
-	let winners = defineWinners(players);
+/* Importé */
+endGame = () => {
+	let winners = defineWinners();
 
 	winners.forEach(element => toggleWinner(element));
 
 	// Pour chaque élément du tableau winners, on exécute la fonction toggleWinner() avec l'élément du tableau en paramètre.
 
-	toggleEndingScreenDisplay();
+	// toggleEndingScreenDisplay(); --> Ecran non existant
+	console.log("GAGNANTS :");
+	console.log(winners);
 
     // return; On ne retourne aucune valeur
 }
