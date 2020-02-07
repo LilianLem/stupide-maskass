@@ -12,7 +12,7 @@ export default class AppLeftCol extends React.Component {
 		return (
 	        <section className="AppLeftCol">
 	            <AppLeftColTop round={this.props.round} />
-	            <AppLeftColBottom/>
+	            <AppLeftColBottom settings={this.props.settings} />
 	        </section>
 		)
 	}

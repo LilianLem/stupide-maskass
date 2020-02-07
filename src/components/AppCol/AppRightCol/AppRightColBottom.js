@@ -3,15 +3,15 @@ import ColPlayer from '../ColPlayer/ColPlayer'
 import './AppRightColBottom.css'
 
 export default class AppRightColBottom extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){
 		return (
             <div className="AppRightColBottom">
-                <ColPlayer player={'C'} />
-                <ColPlayer player={'D'} />
+                {(this.props.settings.playersNb > 3) && <ColPlayer player={'C'} />}
+                {(this.props.settings.playersNb > 4) && <ColPlayer player={'D'} />}
             </div>
 		)
 	}

@@ -33,6 +33,7 @@ export default class Game extends React.Component {
         }
 
         let colSettings = {
+            playersNb: this.props.states.playersNb,
             round: this.props.states.round,
             playerAreas: this.props.states.playerAreas,
         }
@@ -46,8 +47,8 @@ export default class Game extends React.Component {
 
         return (
             <div className="Game">
-                <AppLeftCol round={this.props.states.round} />
-                <AppRightCol/>
+                <AppLeftCol settings={colSettings} round={this.props.states.round} />
+                <AppRightCol settings={colSettings} />
                 <AppDeck settings={deckSettings} />
                 <AppPoints settings={pointsSettings} />
                 <AppHand settings={handSettings} cardIsChosen={this.props.cardIsChosen} />
