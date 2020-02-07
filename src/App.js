@@ -191,6 +191,16 @@ export default class App extends React.Component {
         // return; On ne retourne aucune valeur
     }
 
+    moveCardsToLastPlayedCards = () => {
+        let playedCard;
+        for (let i = 1; i <= this.state.playersNb; i++) 
+        {
+            playedCard = this.state[`player${i}_playedCard`];
+            this.setState({[`player${i}_lastPlayedCard`]: playedCard});
+            this.setState({[`player${i}_playedCard`]: 0});
+        }
+    }
+
     cardIsChosen = (card) => {
         let player = this.state.currentPlayer;
 
