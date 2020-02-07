@@ -20,12 +20,16 @@ export default class Game extends React.Component {
             displayed: this.props.states.isHandDisplayed
         }
 
+        let pointsSettings = {
+            cards: this.props.states[`player${player}_gainedPoints`]
+        }
+
         return (
             <div className="Game">
                 <AppLeftCol/>
                 <AppRightCol/>
                 <AppDeck/>
-                <AppPoints/>
+                <AppPoints settings={pointsSettings} />
                 <AppHand settings={handSettings} cardIsChosen={this.props.cardIsChosen} />
                 <button onClick={() => this.props.testMyCode()} className="TestingButton">TEST</button>
             </div>
