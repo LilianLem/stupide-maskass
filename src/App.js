@@ -236,6 +236,24 @@ export default class App extends React.Component {
         // return; On ne retourne aucune valeur
     }
 
+    switchPlayerAreas = (nextPlayer) => {
+        // On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
+        // Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
+
+        let playerAreas = this.state.playerAreas;
+        if(nextPlayer == 1)
+        {
+            this.generatePlayerAreas();
+        }
+        else
+        {
+            let nextPlayerIndex = playerAreas.indexOf(nextPlayer);
+            playerAreas[nextPlayerIndex] = this.state.currentPlayer;
+        }
+
+        // return; On ne retourne aucune valeur
+    }
+
     toggleHandLock = () => {
         // On bloque ou on débloque la main du joueur courant (on définit le state isHandLocked sur l'inverse de l'état actuel du state isHandLocked)
         // Cette fonction fera aussi se retourner les cartes de la main du joueur courant
@@ -257,25 +275,6 @@ export default class App extends React.Component {
         // On affiche ou on cache les cartes obtenues par le joueur courant (on définit le state isPlayerPointsDisplayed sur l'inverse de l'état actuel du state isPlayerPointsDisplayed)
 
         this.setState({isPlayerPointsDisplayed: !this.state.isPlayerPointsDisplayed});
-
-        // return; On ne retourne aucune valeur
-    }
-
-    // Attention : revoir plus en détails pour la sélection de la zone
-    switchPlayerAreas = (nextPlayer) => {
-        // On affiche ou on cache la zone d'un joueur (on définit la propriété displayed du state player sur l'inverse de son état actuel)
-        // Je complèterai par d'autres éléments plus tard (notamment la rotation des zones)
-
-        let playerAreas = this.state.playerAreas;
-        if(nextPlayer == 1)
-        {
-            this.generatePlayerAreas();
-        }
-        else
-        {
-            let nextPlayerIndex = playerAreas.indexOf(nextPlayer);
-            playerAreas[nextPlayerIndex] = this.state.currentPlayer;
-        }
 
         // return; On ne retourne aucune valeur
     }
