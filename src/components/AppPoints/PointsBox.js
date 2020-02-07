@@ -3,8 +3,8 @@ import PointsCarte from './PointsCarte'
 import './PointsBox.css'
 
 export default class PointsBox extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){

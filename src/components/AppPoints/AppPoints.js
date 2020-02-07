@@ -3,15 +3,15 @@ import PointsBox from './PointsBox'
 import './AppPoints.css'
 
 export default class AppPoints extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 	}
 
 	render(){
 		return (
 	        <section className="AppPoints">
 	            <h1>Mes points obtenus</h1>
-	            <PointsBox/>
+	            <PointsBox cards={this.props.settings.cards} />
 	        </section>
 		)
 	}
