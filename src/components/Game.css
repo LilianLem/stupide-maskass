@@ -91,3 +91,8 @@
   background-size: contain;
   color: white;
 }
+
+.deck {
+  background: url('../resources/deck.png') no-repeat;
+  background-size: contain;
+}

@@ -50,3 +50,10 @@
     height: 300px;
   }
 }
+
+.DeckPart p {
+  margin: 0;
+  font-size: 5em;
+  position: relative;
+  top: 10%;
+}

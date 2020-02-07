@@ -25,11 +25,18 @@ export default class Game extends React.Component {
             displayed: this.props.states.isPlayerPointsDisplayed
         }
 
+        let deckSettings = {
+            displayDraw: this.props.states.displayDraw,
+            displayDraw2: this.props.states.displayDraw2,
+            drawValue: this.props.states.drawValue,
+            drawValue2: this.props.states.drawValue2
+        }
+
         return (
             <div className="Game">
                 <AppLeftCol/>
                 <AppRightCol/>
-                <AppDeck/>
+                <AppDeck settings={deckSettings} />
                 <AppPoints settings={pointsSettings} />
                 <AppHand settings={handSettings} cardIsChosen={this.props.cardIsChosen} />
                 <button onClick={() => this.props.testMyCode()} className="TestingButton">TEST</button>
