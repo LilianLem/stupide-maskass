@@ -10,7 +10,7 @@ export default class PlayerLast extends React.Component {
 		let cardClasses = 'PlayerLast front ' + this.props.character;
 
 		return (
-            <div className={cardClasses}>{this.props.lastPlayedCard}</div>
+            <div className={cardClasses}><p>{this.props.lastPlayedCard}</p></div>
 		)
 	}
 }
