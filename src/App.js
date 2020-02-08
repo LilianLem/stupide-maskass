@@ -388,7 +388,7 @@ export default class App extends React.Component {
         playedCards.forEach(function(element){
             if(element == card) { playedCount++; }
         })
-        if(playedCount > 1){ return false; }
+        if(playedCount > 1 || playedCount == this.state.playersNb){ return false; }
         else { return true; }
     }
 
