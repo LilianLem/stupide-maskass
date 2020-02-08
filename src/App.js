@@ -126,6 +126,7 @@ export default class App extends React.Component {
         });
         
         this.setState({showStartScreen: false});
+        this.toggleHandLock();
         this.setupRound(true);
     }
 
@@ -136,7 +137,6 @@ export default class App extends React.Component {
         {
             this.switchPlayer();
             this.togglePlayedCardsDisplay();
-            this.toggleHandLock();
         }
 
         this.setState({ round: this.state.round + 1});
@@ -175,8 +175,6 @@ export default class App extends React.Component {
             this.setState({drawValue: drawnCard});
             this.setState({displayDraw: true});
         }
-
-        this.toggleHandLock();
 
         cards.shift();
         this.setState({deck: cards});
