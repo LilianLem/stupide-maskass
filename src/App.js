@@ -434,6 +434,23 @@ export default class App extends React.Component {
         return winners;
     }
 
+    getPlayerPoints = (player) => {
+        // On définit playerPoints comme étant égal à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
+        let gainedPoints = this.getPlayerPointsCards(player);
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        let playerPoints = gainedPoints.reduce(reducer);
+
+        return playerPoints;
+    }
+
+    getPlayerPointsCards = (player) => {
+        // On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
+        let playerCards = this.state[`player${player}_gainedPoints`];
+
+        return playerCards;
+    }
+
     toggleWinner = (player) => {
         this.setState({[`player${player}_winner`]: !this.state['player${player}_winner']});
 

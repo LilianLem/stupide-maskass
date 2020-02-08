@@ -161,6 +161,7 @@ togglePlayerAreaDisplay = (player) => {
     // return; On ne retourne aucune valeur
 }
 
+/* Importé */
 getPlayerPoints = (player) => {
 	// On définit playerPoints comme étant égal à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
 	let gainedPoints = getPlayerPointsCards(player);
@@ -171,6 +172,7 @@ getPlayerPoints = (player) => {
 	return playerPoints;
 }
 
+/* Importé */
 getPlayerPointsCards = (player) => {
 	// On définit playerPoints comme étant égal à la propriété cards DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
 	playerCards = this.state[`player${player}_gainedPoints`];
