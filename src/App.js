@@ -209,6 +209,7 @@ export default class App extends React.Component {
 
         this.toggleHandLock();
         this.toggleCurrentPlayerHandDisplay();
+        this.toggleCurrentPlayerPointsDisplay();
 
         this.storePlayedCard(player, card);
 
@@ -224,17 +225,8 @@ export default class App extends React.Component {
                 {
                     console.log('winningValue : '+checkResult.winningValue+' playedCards : '+checkResult.playedCards);
                     let winner = this.getRoundWinner(checkResult.winningValue,checkResult.playedCards);
-                    this.storeGainedPoints(winner);
 
-                    if(this.state.round == 15)
-                    {
-                        this.endGame();
-                    }
-
-                    else
-                    {
-                        this.displayNextPlayerButton('round');
-                    }
+                    this.endRound(winner);
                 }
                 else
                 {
@@ -245,36 +237,13 @@ export default class App extends React.Component {
                     {
                         console.log('winningValue : '+checkResult.winningValue+' playedCards : '+checkResult.playedCards);
                         let winner = this.getRoundWinner(checkResult.winningValue,checkResult.playedCards);
-                        this.storeGainedPoints(winner);
 
-                        if(this.state.round == 15)
-                        {
-                            this.endGame();
-                        }
-
-                        else
-                        {
-                            this.displayNextPlayerButton('round');
-                        }
+                        this.endRound(winner);
                     }
 
                     else
                     {
-                        if(this.state.round == 15)
-                        {
-                            this.endGame();
-                        }
-
-                        else
-                        {
-                            if(this.state.tieOnPreviousRound == true){
-                                this.displayNextPlayerButton('round');
-                            }
-                            else {
-                                this.setState({doubleTieOnNextRound: true});
-                                this.displayNextPlayerButton('round');
-                            }
-                        }
+                        this.endRound(0);
                     }
                 }
             }, 2000);
@@ -328,6 +297,27 @@ export default class App extends React.Component {
         }
     }
 
+    endRound = (winner) => {
+        if(winner != 0){this.storeGainedPoints(winner);}
+
+        if(this.state.round == 15)
+        {
+            this.endGame();
+        }
+
+        else
+        {
+            this.displayNextPlayerButton('round');
+
+            if(winner == 0 && !this.state.tieOnPreviousRound)
+            {
+                this.setState({doubleTieOnNextRound: true});
+            }
+        }
+
+        // return; On ne retourne aucune valeur
+    }
+
     switchPlayer = () => {
         this.displayNextPlayerButton('none');
 
@@ -340,8 +330,6 @@ export default class App extends React.Component {
         {
             nextPlayer = this.state.currentPlayer + 1;
         }
-
-        this.toggleCurrentPlayerPointsDisplay();
 
         this.switchPlayerAreas(nextPlayer);
 
