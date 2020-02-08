@@ -39,7 +39,7 @@ export default class DeckBox extends React.Component {
 
 		return (
             <div className="DeckBox">
-                <DeckPart cardStyleClasses="DeckPart deck" />
+                {/* <DeckPart cardStyleClasses="DeckPart deck" />*/}
                 {deckAreaCards}
             </div>
 		)
