@@ -276,7 +276,8 @@ simpleTie_getNewArray = (card,playedCards) => {
 	// On supprime les valeurs correspondant à card du tableau playedCards (avec un foreach comparant les valeurs du tableau playedCards à card)
 	newArray = [];
 	playedCards.forEach(function(element){
-		if(element != card) {newArray.push(element);}
+		if(element == card) {newArray.push(0);}
+		else {newArray.push(element);}
 	})
 
 	return newArray;

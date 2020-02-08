@@ -205,8 +205,69 @@ export default class App extends React.Component {
             this.togglePlayedCardsDisplay();
 
             setTimeout(() => {
-                this.checkPlayedCards();
+                let pointsToWin = this.state.drawValue + this.state.drawValue2;
+                let checkResult = this.checkPlayedCards(pointsToWin);
 
+                if(checkResult.isCardUnique == true)
+                {
+                    console.log('winningValue : '+checkResult.winningValue+' playedCards : '+checkResult.playedCards);
+                    let winner = this.getRoundWinner(checkResult.winningValue,checkResult.playedCards);
+                    this.storeGainedPoints(winner);
+
+                    if(this.state.round == 15)
+                    {
+                        this.endGame();
+                    }
+
+                    else
+                    {
+                        this.setupRound();
+                        this.switchPlayer();
+                        this.togglePlayedCardsDisplay();
+                        this.toggleHandLock();
+                    }
+                }
+                else
+                {
+                    let newCardsToCheck = this.simpleTie_getNewArray(checkResult.winningValue, checkResult.playedCards);
+                    checkResult = this.checkPlayedCards(pointsToWin,newCardsToCheck);
+
+                    if(checkResult.isCardUnique == true)
+                    {
+                        console.log('winningValue : '+checkResult.winningValue+' playedCards : '+checkResult.playedCards);
+                        let winner = this.getRoundWinner(checkResult.winningValue,checkResult.playedCards);
+                        this.storeGainedPoints(winner);
+
+                        if(this.state.round == 15)
+                        {
+                            this.endGame();
+                        }
+
+                        else
+                        {
+                            this.setupRound();
+                            this.switchPlayer();
+                            this.togglePlayedCardsDisplay();
+                            this.toggleHandLock();
+                        }
+                    }
+
+                    else
+                    {
+                        if(this.state.round == 15)
+                        {
+                            this.endGame();
+                        }
+
+                        else
+                        {
+                            this.setupRound(true); // S'il y a double égalité, on précise en paramètre qu'il faut le prendre en compte.
+                            this.switchPlayer();
+                            this.togglePlayedCardsDisplay();
+                            this.toggleHandLock();
+                        }
+                    }
+                }
             }, 2000);
         }
 
@@ -216,13 +277,19 @@ export default class App extends React.Component {
         }
     }
 
-    checkPlayedCards = () => {
-        let pointsToWin = this.state.drawValue + this.state.drawValue2;
-
+    checkPlayedCards = (pointsToWin,simpleTie_array) => {
         let playedCards = [];
-        for (let i = 1; i <= this.state.playersNb; i++)
+        if(simpleTie_array)
         {
-            playedCards.push(this.state[`player${i}_playedCard`]);
+            playedCards = simpleTie_array;
+        }
+
+        else
+        {
+            for (let i = 1; i <= this.state.playersNb; i++)
+            {
+                playedCards.push(this.state[`player${i}_playedCard`]);
+            }
         }
 
         let winningValue;
@@ -232,33 +299,23 @@ export default class App extends React.Component {
         }
         else
         {
+            if(simpleTie_array)
+            {
+                playedCards = simpleTie_array.map((element) => {
+                    if(element == 0) {return 16;}
+                    else {return element;}
+                })
+            }
+
             winningValue = this.getMinPlayedCard(playedCards);
         }
 
         let isCardUnique = this.isPlayedCardUnique(winningValue,playedCards);
 
-        if(isCardUnique)
-        {
-            console.log('winningValue : '+winningValue+' playedCards : '+playedCards);
-            let winner = this.getRoundWinner(winningValue,playedCards);
-            this.storeGainedPoints(winner);
-
-            if(this.state.round == 15)
-            {
-                this.endGame();
-            }
-
-            else
-            {
-                this.setupRound();
-                this.switchPlayer();
-                this.togglePlayedCardsDisplay();
-                this.toggleHandLock();
-            }
-        }
-        else
-        {
-            // Les cas d'égalité ne sont pas encore pris en compte, désolé !
+        return {
+            isCardUnique: isCardUnique,
+            winningValue: winningValue,
+            playedCards: playedCards
         }
     }
 
