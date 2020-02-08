@@ -270,7 +270,7 @@ storeGainedPoints = (player) => {
     return newPointsArray;
 }
 
-setSimpleTie = (card,playedCards) => {
+simpleTie_getNewArray = (card,playedCards) => {
 	// Cette fonction sera utilisée lorsqu'il y a égalité (donc que deux joueurs ont la carte la plus forte ou la plus faible)
 
 	// On définit la variable simpleTie préalablement définie hors de la fonction sur vrai
