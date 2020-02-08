@@ -510,6 +510,11 @@ export default class App extends React.Component {
         // On définit playerPoints comme étant égal à la propriété points DU STATE player (PAS DE LA VARIABLE MISE EN ARGUMENT)
         let gainedPoints = this.getPlayerPointsCards(player);
 
+        if(gainedPoints.length == 0)
+        {
+            return 0;
+        }
+
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         let playerPoints = gainedPoints.reduce(reducer);
 
