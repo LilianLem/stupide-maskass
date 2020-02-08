@@ -1,6 +1,7 @@
 import React from 'react';
 import Game from './components/Game'
 import StartScreen from './components/StartScreen'
+import NextPlayerButton from './components/NextPlayerButton'
 import './App.css';
 
 export default class App extends React.Component {
@@ -68,6 +69,7 @@ export default class App extends React.Component {
             isHandLocked: true,
             isHandDisplayed: false,
             isPlayerPointsDisplayed: false,
+            isNextPlayerButtonDisplayed: 'none',
             showStartScreen: true,
             displayPlayedCards: false
 		};
@@ -124,11 +126,19 @@ export default class App extends React.Component {
         });
         
         this.setState({showStartScreen: false});
-        this.setupRound();
+        this.setupRound(true);
     }
 
-    setupRound = () => {
+    setupRound = (isFirstRound) => {
         // Initialiser la partie 
+
+        if(!isFirstRound)
+        {
+            this.switchPlayer();
+            this.togglePlayedCardsDisplay();
+            this.toggleHandLock();
+        }
+
         this.setState({ round: this.state.round + 1});
         this.generatePlayerAreas();
         this.moveCardsToLastPlayedCards();
@@ -225,10 +235,7 @@ export default class App extends React.Component {
 
                     else
                     {
-                        this.setupRound();
-                        this.switchPlayer();
-                        this.togglePlayedCardsDisplay();
-                        this.toggleHandLock();
+                        this.displayNextPlayerButton('round');
                     }
                 }
                 else
@@ -249,10 +256,7 @@ export default class App extends React.Component {
 
                         else
                         {
-                            this.setupRound();
-                            this.switchPlayer();
-                            this.togglePlayedCardsDisplay();
-                            this.toggleHandLock();
+                            this.displayNextPlayerButton('round');
                         }
                     }
 
@@ -268,11 +272,8 @@ export default class App extends React.Component {
                             if(this.state.tieOnPreviousRound == true){this.setupRound();}
                             else {
                                 this.setState({doubleTieOnNextRound: true});
-                                this.setupRound();
+                                this.displayNextPlayerButton('round');
                             }
-                            this.switchPlayer();
-                            this.togglePlayedCardsDisplay();
-                            this.toggleHandLock();
                         }
                     }
                 }
@@ -281,7 +282,7 @@ export default class App extends React.Component {
 
         else
         {
-            this.switchPlayer();
+            this.displayNextPlayerButton('player');
         }
     }
 
@@ -328,6 +329,8 @@ export default class App extends React.Component {
     }
 
     switchPlayer = () => {
+        this.displayNextPlayerButton('none');
+
         let nextPlayer;
         if(this.state.currentPlayer == this.state.playersNb)
         {
@@ -340,15 +343,13 @@ export default class App extends React.Component {
 
         this.toggleCurrentPlayerPointsDisplay();
 
-        setTimeout(() => {
-            this.switchPlayerAreas(nextPlayer);
+        this.switchPlayerAreas(nextPlayer);
 
-            this.state.currentPlayer = nextPlayer;
+        this.state.currentPlayer = nextPlayer;
 
-            this.toggleCurrentPlayerPointsDisplay();
-            this.toggleCurrentPlayerHandDisplay();
-            this.toggleHandLock();
-        }, 500); // Temps d'attente réduit pour la présentation du projet
+        this.toggleCurrentPlayerPointsDisplay();
+        this.toggleCurrentPlayerHandDisplay();
+        this.toggleHandLock();
 
         // return; On ne retourne aucune valeur
     }
@@ -464,6 +465,13 @@ export default class App extends React.Component {
         // return; On ne retourne aucune valeur
     }
 
+    displayNextPlayerButton = (callType) => {
+        // On affiche ou on cache le bouton permettant de passer au joueur suivant ou de commencer le round suivant
+        this.setState({isNextPlayerButtonDisplayed: callType});
+
+        // return; On ne retourne aucune valeur
+    }
+
     defineWinners = () => {
         let playersScore = [];
 
@@ -571,6 +579,7 @@ export default class App extends React.Component {
 	    return (
             <div className="App">
                 <StartScreen showStartScreen={this.state.showStartScreen} startGame={this.startGame}/>
+                <NextPlayerButton showNextPlayerButton={this.state.isNextPlayerButtonDisplayed} switchPlayer={this.switchPlayer} setupRound={this.setupRound} />
     		    <Game states={this.state} testMyCode={this.testMyCode} cardIsChosen={this.cardIsChosen} />
             </div>
 	    );
