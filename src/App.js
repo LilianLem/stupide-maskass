@@ -549,6 +549,14 @@ export default class App extends React.Component {
         console.log("GAGNANTS :");
         console.log(winners);
 
+        console.log("SCORES :");
+        for (let i = 1; i <= this.state.playersNb; i++)
+        {
+            console.log("JOUEUR "+i+" : "+this.getPlayerPoints(i));
+            console.log("Points gagnés : ");
+            console.log(this.state[`player${i}_gainedPoints`]);
+        }
+
         // return; On ne retourne aucune valeur
     }
 
