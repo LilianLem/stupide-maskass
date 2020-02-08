@@ -481,6 +481,12 @@ export default class App extends React.Component {
         {
             winners.push(playersScore.indexOf(maxScore) + 1);
         }
+        else if(valueCounter == this.state.playersNb)
+        {
+            for (let i = 1; i <= this.state.playersNb; i++) {
+                winners.push(i);
+            }
+        }
         else
         {
             let newArray = [];
