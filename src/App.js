@@ -333,7 +333,7 @@ export default class App extends React.Component {
 
         this.switchPlayerAreas(nextPlayer);
 
-        this.state.currentPlayer = nextPlayer;
+        this.setState({currentPlayer: nextPlayer});
 
         this.toggleCurrentPlayerPointsDisplay();
         this.toggleCurrentPlayerHandDisplay();
