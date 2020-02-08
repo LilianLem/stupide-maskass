@@ -4,7 +4,6 @@
   overflow: hidden;
   box-shadow: 7px 5px 5px rgba(0,0,0,0.5);
   border-radius: 9px;
-  cursor: pointer;
 }
 
 @media screen and (min-width: 680px) {
