@@ -393,7 +393,7 @@ export default class App extends React.Component {
         let score = 0;
         for (let player = 1; player <= this.state.playersNb; player++) {
             score = this.getPlayerPoints(player);
-            playersScore[player] = score; 
+            playersScore.push(score); 
         }
 
         let valueCounter = 0;
@@ -409,24 +409,26 @@ export default class App extends React.Component {
         let winners = [];
         if(valueCounter == 1)
         {
-            winners.push(playersScore.indexOf(maxScore));
+            winners.push(playersScore.indexOf(maxScore) + 1);
         }
         else
         {
             let newArray = [];
-            for (let i = 1; i <= playersScore.length; i++) {
-                if(playersScore[i] != maxScore)
+            let newPlayersArray = [];
+            for (let i = 1; i <= this.state.playersNb; i++) {
+                if(playersScore[i-1] != maxScore)
                 {
-                    newArray[i] = playersScore[i];
+                    newArray.push(playersScore[i-1]);
+                    newPlayersArray.push(i);
                 }
             }
 
-            let maxScore = Math.max(...newArray);
+            maxScore = Math.max(...newArray);
 
-            for (let i = 1; i <= newArray.length; i++) {
+            for (let i = 0; i < newArray.length; i++) {
                 if(newArray[i] == maxScore)
                 {
-                    winners.push(i);
+                    winners.push(newPlayersArray[i]);
                 }
             }
         }
