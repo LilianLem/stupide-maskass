@@ -392,6 +392,19 @@ export default class App extends React.Component {
         return true;
     }
 
+    simpleTie_getNewArray = (card,playedCards) => {
+        // Cette fonction sera utilisée lorsqu'il y a égalité (donc que deux joueurs ont la carte la plus forte ou la plus faible)
+
+        // On supprime les valeurs correspondant à card du tableau playedCards (avec un foreach comparant les valeurs du tableau playedCards à card)
+        let newArray = [];
+        playedCards.forEach(function(element){
+            if(element == card) {newArray.push(0);}
+            else {newArray.push(element);}
+        })
+
+        return newArray;
+    }
+
     getRoundWinner = (card,playedCards) => {
         // On récupère l'index du tableau où est la carte gagnante et on le stocke dans la variable winner
         let winner = playedCards.indexOf(card) + 1;

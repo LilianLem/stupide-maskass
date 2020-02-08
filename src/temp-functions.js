@@ -270,6 +270,7 @@ storeGainedPoints = (player) => {
     return newPointsArray;
 }
 
+/* Importé */
 simpleTie_getNewArray = (card,playedCards) => {
 	// Cette fonction sera utilisée lorsqu'il y a égalité (donc que deux joueurs ont la carte la plus forte ou la plus faible)
 
