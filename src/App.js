@@ -261,7 +261,8 @@ export default class App extends React.Component {
 
                         else
                         {
-                            this.setupRound(true); // S'il y a double égalité, on précise en paramètre qu'il faut le prendre en compte.
+                            if(this.state.tieOnPreviousRound == true){this.setupRound();}
+                            else {this.setupRound(true); } // S'il y a double égalité, on précise en paramètre qu'il faut le prendre en compte.
                             this.switchPlayer();
                             this.togglePlayedCardsDisplay();
                             this.toggleHandLock();
@@ -386,10 +387,9 @@ export default class App extends React.Component {
         let playedCount = 0;
         playedCards.forEach(function(element){
             if(element == card) { playedCount++; }
-            if(playedCount == 2){ return false; }
         })
-
-        return true;
+        if(playedCount > 1){ return false; }
+        else { return true; }
     }
 
     simpleTie_getNewArray = (card,playedCards) => {
