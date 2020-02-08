@@ -382,8 +382,7 @@ export default class App extends React.Component {
 
     getMaxPlayedCard = (playedCards) => {
         // On stocke dans la variable maxCard la carte avec la valeur la plus élevée dans le tableau playedCards
-        console.log('jdsgjidfgjifdjgdfjg');
-        console.log(playedCards);
+
         let maxCard = Math.max(...playedCards);
 
         return maxCard;
