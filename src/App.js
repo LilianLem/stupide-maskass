@@ -59,6 +59,7 @@ export default class App extends React.Component {
         	round: 0,
             currentPlayer: 0,
             playerAreas: [],
+            doubleTieOnNextRound: false,
         	tieOnPreviousRound: false,
             displayDraw: false,
             displayDraw2: false,
@@ -126,15 +127,18 @@ export default class App extends React.Component {
         this.setupRound();
     }
 
-    setupRound = (setDoubleTie) => {
+    setupRound = () => {
         // Initialiser la partie 
         this.setState({ round: this.state.round + 1});
         this.generatePlayerAreas();
         this.moveCardsToLastPlayedCards();
 
-        if(setDoubleTie)
+        if(this.state.doubleTieOnNextRound)
         {
-            this.setState({tieOnPreviousRound: true});
+            this.setState({
+                doubleTieOnNextRound: false,
+                tieOnPreviousRound: true
+            });
         }
         else
         {
@@ -262,7 +266,10 @@ export default class App extends React.Component {
                         else
                         {
                             if(this.state.tieOnPreviousRound == true){this.setupRound();}
-                            else {this.setupRound(true); } // S'il y a double égalité, on précise en paramètre qu'il faut le prendre en compte.
+                            else {
+                                this.setState({doubleTieOnNextRound: true});
+                                this.setupRound();
+                            }
                             this.switchPlayer();
                             this.togglePlayedCardsDisplay();
                             this.toggleHandLock();
