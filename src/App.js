@@ -267,7 +267,9 @@ export default class App extends React.Component {
 
                         else
                         {
-                            if(this.state.tieOnPreviousRound == true){this.setupRound();}
+                            if(this.state.tieOnPreviousRound == true){
+                                this.displayNextPlayerButton('round');
+                            }
                             else {
                                 this.setState({doubleTieOnNextRound: true});
                                 this.displayNextPlayerButton('round');
