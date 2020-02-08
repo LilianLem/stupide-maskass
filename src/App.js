@@ -148,14 +148,14 @@ export default class App extends React.Component {
             this.setState({
                 doubleTieOnNextRound: false,
                 tieOnPreviousRound: true
-            });
+            }, this.drawCard);
         }
         else
         {
-            this.setState({tieOnPreviousRound: false, drawValue: 0, drawValue2: 0, displayDraw: false, displayDraw2: false});
+            this.setState({tieOnPreviousRound: false, drawValue: 0, drawValue2: 0, displayDraw: false, displayDraw2: false}, this.drawCard);
         }
 
-        this.drawCard();
+        //this.drawCard();
 
         // return; On ne retourne aucune valeur
     }
